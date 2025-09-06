@@ -47,7 +47,9 @@ All colors MUST be HSL.
     --radius: 1rem;
 
     /* Fabdive custom design tokens */
-    --fabdive-bg: transparent;
+    --fabdive-bg: linear-gradient(135deg, hsl(261 85% 65%), hsl(271 91% 52%));
+    --fabdive-primary: 261 85% 65%;
+    --fabdive-secondary: 271 91% 52%;
     --fabdive-input-bg: 240 95% 31%;
     --fabdive-input-border: 48 100% 95%;
     --fabdive-input-focus: 40 73% 62%;

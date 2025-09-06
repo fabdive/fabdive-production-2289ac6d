@@ -61,6 +61,8 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				fabdive: {
+					primary: 'hsl(var(--fabdive-primary))',
+					secondary: 'hsl(var(--fabdive-secondary))',
 					button: 'hsl(var(--fabdive-button))',
 					blue: 'hsl(var(--fabdive-blue))',
 					text: 'hsl(var(--fabdive-text))',

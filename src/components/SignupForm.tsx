@@ -89,7 +89,7 @@ export function SignupForm() {
       <div 
         className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4"
         style={{
-          backgroundImage: "url('/lovable-uploads/79534e7d-2c05-4985-82c5-60b4b4fc78b4.png')",
+          backgroundImage: "url('/fond-temp.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
