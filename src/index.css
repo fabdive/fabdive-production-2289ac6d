@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-comfortaa: 'Comfortaa', sans-serif;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 48 100% 95%;
+
+    --card: 0 0% 100% / 0.05;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 240 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 263 85% 65%;
+
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4.8% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 268 84% 48%;
+    --accent-foreground: 0 0% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 355.7 100% 97.3%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 100% 50%;
+    --input: 0 0% 100% / 0.1;
+    --ring: 240 100% 50%;
+
+    --radius: 1rem;
+
+    /* Fabdive custom design tokens */
+    --fabdive-bg: transparent;
+    --fabdive-input-bg: 240 95% 31%;
+    --fabdive-input-border: 48 100% 95%;
+    --fabdive-input-focus: 40 73% 62%;
+    --fabdive-email-text: 245 98% 28%;
+    --fabdive-button: 42 76% 63%;
+    --fabdive-blue: 240 95% 31%;
+    --fabdive-text: 48 100% 95%;
+    --fabdive-text-main: 48 100% 95%;
+    --fabdive-text-accent: 244 98% 28%;
+    --fabdive-profile-input-bg: 244 87% 31%;
+    --fabdive-menu-bg: 40 73% 62%;
+    --fabdive-menu-icon: 244 98% 28%;
+    --shadow-glow: 0 10px 40px hsl(240 100% 50% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground;
+    background: var(--fabdive-bg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .animate-fill-forwards {
+    animation-fill-mode: forwards;
+  }
+}
+
+/* Iridescence Animation */
+.iridescence-bg {
+  background: linear-gradient(45deg, 
+    #ff006e, 
+    #8338ec, 
+    #3a86ff, 
+    #06ffa5, 
+    #ffbe0b, 
+    #fb5607, 
+    #ff006e
+  );
+  background-size: 400% 400%;
+  animation: iridescence 8s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.iridescence-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  animation: shimmer 6s ease-in-out infinite alternate;
+}
+
+@keyframes iridescence {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) brightness(1.2);
+  }
+  25% {
+    background-position: 50% 100%;
+    filter: hue-rotate(90deg) brightness(1.4);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) brightness(1.6);
+  }
+  75% {
+    background-position: 50% 0%;
+    filter: hue-rotate(270deg) brightness(1.4);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg) brightness(1.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.5;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05) rotate(1deg);
+  }
+}
