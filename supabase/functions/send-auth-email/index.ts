@@ -284,7 +284,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending email via Resend API...");
 
     const { data, error: resendError } = await resend.emails.send({
-      from: 'FabDive <onboarding@resend.dev>',
+      from: 'FabDive <hello@fabdive.com>',
       to: [user.email],
       subject: subject,
       html: htmlContent,
