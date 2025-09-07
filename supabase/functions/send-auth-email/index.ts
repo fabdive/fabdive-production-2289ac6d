@@ -1,8 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Webhook } from 'https://esm.sh/standardwebhooks@1.0.0';
+import { Resend } from "npm:resend@4.0.0";
 
-const sendGridApiKey = Deno.env.get("SENDGRID_API_KEY");
-const hookSecret = Deno.env.get("SEND_AUTH_EMAIL_HOOK_SECRET") || "your-webhook-secret";
+const resend = new Resend(Deno.env.get('RESEND_API_KEY') as string);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -281,47 +280,22 @@ const handler = async (req: Request): Promise<Response> => {
       `;
     }
 
-    // Send email using SendGrid API
-    const emailPayload = {
-      personalizations: [
-        {
-          to: [{ email: user.email }],
-          subject: subject
-        }
-      ],
-      from: {
-        email: "onboarding@resend.dev",
-        name: "FabDive"
-      },
-      content: [
-        {
-          type: "text/html",
-          value: htmlContent
-        }
-      ],
-      categories: ["auth-email"]
-    };
+    // Send email using Resend API
+    console.log("Sending email via Resend API...");
 
-    console.log("Sending email via SendGrid API...");
-
-    const emailResponse = await fetch("https://api.sendgrid.com/v3/mail/send", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${sendGridApiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(emailPayload)
+    const { data, error: resendError } = await resend.emails.send({
+      from: 'FabDive <onboarding@resend.dev>',
+      to: [user.email],
+      subject: subject,
+      html: htmlContent,
     });
 
-    console.log("SendGrid response status:", emailResponse.status);
-
-    if (!emailResponse.ok) {
-      const errorText = await emailResponse.text();
-      console.error("SendGrid error response:", errorText);
-      throw new Error(`SendGrid API error: ${emailResponse.status} - ${errorText}`);
+    if (resendError) {
+      console.error("Resend error:", resendError);
+      throw new Error(`Resend API error: ${resendError.message}`);
     }
 
-    console.log("Auth email sent successfully via SendGrid");
+    console.log("Auth email sent successfully via Resend:", data?.id);
 
     return new Response(JSON.stringify({
       success: true,
