@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Mail, User } from "lucide-react";
 import Header from "@/components/Header";
 
@@ -24,6 +24,10 @@ export function SignupForm() {
   
   const { toast } = useToast();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  
+  // Vérifier si l'utilisateur arrive depuis un lien crush
+  const isCrushLink = searchParams.get('crush') === '1';
 
   useEffect(() => {
     const checkUser = async () => {
@@ -98,18 +102,32 @@ export function SignupForm() {
         <div className="w-full max-w-md space-y-6">
           {/* Header */}
           <div className="text-center space-y-2">
-            <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">Inscription</h1>
-            <p className="text-fabdive-text/80">
-              Crée ton compte Fabdive
-            </p>
+            {isCrushLink ? (
+              <>
+                <div className="text-4xl mb-2">💕</div>
+                <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">Quelqu'un a un crush pour toi !</h1>
+                <p className="text-fabdive-text/80">
+                  Inscris-toi pour tenter de découvrir qui a un crush pour toi ✨
+                </p>
+              </>
+            ) : (
+              <>
+                <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">Inscription</h1>
+                <p className="text-fabdive-text/80">
+                  Crée ton compte Fabdive
+                </p>
+              </>
+            )}
           </div>
 
           {/* Form Card */}
           <Card className="border-white/20 bg-card/10 backdrop-blur-sm shadow-elegant">
             <CardHeader className="space-y-1">
-              <CardTitle className="text-xl text-fabdive-text">Rejoins Fabdive</CardTitle>
+              <CardTitle className="text-xl text-fabdive-text">
+                {isCrushLink ? "Découvre qui c'est !" : "Rejoins Fabdive"}
+              </CardTitle>
               <CardDescription className="text-fabdive-text/70">
-                Choisis ta méthode d'inscription préférée
+                {isCrushLink ? "Inscris-toi pour voir qui a pensé à toi" : "Choisis ta méthode d'inscription préférée"}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
