@@ -290,7 +290,7 @@ const handler = async (req: Request): Promise<Response> => {
         }
       ],
       from: {
-        email: "auth@fabdive.app",
+        email: "onboarding@resend.dev",
         name: "FabDive"
       },
       content: [
