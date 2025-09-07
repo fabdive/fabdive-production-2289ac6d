@@ -11,6 +11,22 @@ const Index = () => {
   const [isProcessingAuth, setIsProcessingAuth] = useState(false);
 
   useEffect(() => {
+    // Vérifier s'il y a une erreur dans l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorParam = urlParams.get('error');
+    const errorDescription = urlParams.get('error_description');
+    
+    if (errorParam || window.location.hash.includes('error')) {
+      toast({
+        variant: "destructive",
+        title: "Erreur d'authentification",
+        description: errorDescription || "Le lien magique a expiré ou est invalide."
+      });
+      // Nettoyer l'URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+      return;
+    }
+
     // Écouter les changements d'état d'authentification
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
