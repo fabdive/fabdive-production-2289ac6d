@@ -49,7 +49,7 @@ const SplashScreen = () => {
 
     // Précharger l'image fond-profil pour éviter le flash
     const preloadImage = new Image();
-    preloadImage.src = '/lovable-uploads/79534e7d-2c05-4985-82c5-60b4b4fc78b4.png';
+    preloadImage.src = '/fond-temp.png';
     
     // Délai de 4.5 secondes pour afficher le splash, puis redirection
     const timer = setTimeout(() => {
@@ -79,7 +79,7 @@ const SplashScreen = () => {
         {/* Logo */}
         <div className="mb-8">
           <img 
-            src="/lovable-uploads/7b9debb8-1272-476b-8829-072b56cf0c5d.png" 
+            src="/logo-fabdive.png" 
             alt="Fabdive Logo" 
             className="w-64 h-auto mx-auto mb-4"
           />
