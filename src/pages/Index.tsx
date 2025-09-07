@@ -56,7 +56,13 @@ const Index = () => {
         return;
       }
 
-      // Vérifier quelle étape du profil n'est pas complète
+      // Vérifier d'abord si la photo est présente
+      if (!profile.profile_photo_url) {
+        navigate("/profile-photo-upload");
+        return;
+      }
+
+      // Puis vérifier les autres étapes dans l'ordre
       if (!profile.gender) {
         navigate("/profile-gender");
       } else {
@@ -89,7 +95,7 @@ const Index = () => {
 
   if (isProcessingAuth) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-fabdive-primary to-fabdive-secondary">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center space-y-4">
           <div className="w-8 h-8 border-2 border-fabdive-button border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="text-fabdive-text">Finalisation de la connexion...</p>
