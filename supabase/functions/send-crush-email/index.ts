@@ -156,7 +156,7 @@ const handler = async (req: Request): Promise<Response> => {
 
                     <!-- CTA Button -->
                     <div style="margin: 40px 0;">
-                      <a href="https://fabdive.lovable.app/?crush=1" style="
+                      <a href="https://fabdive.app/?crush=1" style="
                         display: inline-block;
                         background: linear-gradient(135deg, #e91e63, #f06292);
                         color: white;
