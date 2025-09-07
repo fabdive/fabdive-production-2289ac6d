@@ -79,8 +79,8 @@ const SplashScreen = () => {
         {/* Logo */}
         <div className="mb-8">
           <img 
-            src="/logo-fabdive-affinity.png" 
-            alt="Fabdive Affinity Logo" 
+            src="/2logo-fabdive.png" 
+            alt="Fabdive Logo" 
             className="w-64 h-auto mx-auto mb-4"
           />
         </div>
