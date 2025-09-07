@@ -14,6 +14,62 @@ export type Database = {
   }
   public: {
     Tables: {
+      crush_notifications: {
+        Row: {
+          created_at: string
+          crush_id: string
+          id: string
+          recipient_email: string
+        }
+        Insert: {
+          created_at?: string
+          crush_id: string
+          id?: string
+          recipient_email: string
+        }
+        Update: {
+          created_at?: string
+          crush_id?: string
+          id?: string
+          recipient_email?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "crush_notifications_crush_id_fkey"
+            columns: ["crush_id"]
+            isOneToOne: false
+            referencedRelation: "crushes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      crush_rate_limits: {
+        Row: {
+          created_at: string
+          date_bucket: string
+          email_count: number
+          id: string
+          last_email_sent: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date_bucket?: string
+          email_count?: number
+          id?: string
+          last_email_sent?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date_bucket?: string
+          email_count?: number
+          id?: string
+          last_email_sent?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       crushes: {
         Row: {
           created_at: string
@@ -31,7 +87,7 @@ export type Database = {
           email_sent?: boolean
           error_message?: string | null
           id?: string
-          recipient_email: string
+          recipient_email?: string
           sender_user_id: string
           updated_at?: string
         }
@@ -44,6 +100,27 @@ export type Database = {
           recipient_email?: string
           sender_user_id?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      matching_logs: {
+        Row: {
+          created_at: string | null
+          id: string
+          search_params: Json | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          search_params?: Json | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          search_params?: Json | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -137,27 +214,33 @@ export type Database = {
         }
         Relationships: []
       }
-      user_interactions: {
+      security_audit_log: {
         Row: {
-          created_at: string | null
+          created_at: string
+          event_data: Json | null
+          event_type: string
           id: string
-          interaction_type: string
-          target_user_id: string
-          user_id: string
+          ip_address: unknown | null
+          user_agent: string | null
+          user_id: string | null
         }
         Insert: {
-          created_at?: string | null
+          created_at?: string
+          event_data?: Json | null
+          event_type: string
           id?: string
-          interaction_type: string
-          target_user_id: string
-          user_id: string
+          ip_address?: unknown | null
+          user_agent?: string | null
+          user_id?: string | null
         }
         Update: {
-          created_at?: string | null
+          created_at?: string
+          event_data?: Json | null
+          event_type?: string
           id?: string
-          interaction_type?: string
-          target_user_id?: string
-          user_id?: string
+          ip_address?: unknown | null
+          user_agent?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -210,39 +293,70 @@ export type Database = {
           updated_at?: string
           user_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "user_preferences_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: true
-            referencedRelation: "profiles"
-            referencedColumns: ["user_id"]
-          },
-        ]
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      auto_cleanup_old_data: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
       calculate_distance: {
         Args: { lat1: number; lat2: number; lon1: number; lon2: number }
         Returns: number
       }
-      can_view_crush: {
-        Args: { crush_id: string }
-        Returns: boolean
+      cleanup_old_audit_logs: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      cleanup_old_notifications: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
       }
       find_matches_by_distance: {
-        Args: {
-          current_user_id: string
-          max_distance: number
-          preferred_age_max?: number
-          preferred_age_min?: number
-          preferred_genders?: string[]
-          user_lat: number
-          user_lon: number
-        }
+        Args:
+          | {
+              current_user_id: string
+              max_distance: number
+              preferred_age_max: number
+              preferred_age_min: number
+              preferred_genders: string[]
+              user_lat: number
+              user_lon: number
+            }
+          | {
+              current_user_id: string
+              max_distance: number
+              preferred_age_max?: number
+              preferred_age_min?: number
+              preferred_genders?: string[]
+              user_lat: number
+              user_lon: number
+            }
         Returns: {
           age: number
           body_type: string
@@ -256,123 +370,101 @@ export type Database = {
           user_id: string
         }[]
       }
-      get_anonymized_profiles: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          age_range: string
-          body_type: string
-          display_name: string
-          gender: string
-          height_category: string
-          location_country: string
-          profile_photo_url: string
-          user_id: string
-        }[]
-      }
-      get_anonymous_matches: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          age_range: string
-          anonymous_id: string
-          display_name: string
-          gender: string
-          general_location: string
-          has_photo: boolean
-        }[]
-      }
-      get_match_suggestions: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          age_category: string
-          has_photo: boolean
-          location_category: string
-          suggestion_id: string
-        }[]
-      }
-      get_minimal_match_data: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          has_photo: boolean
-          is_active: boolean
-          match_id: string
-        }[]
-      }
-      get_nearby_matches: {
-        Args: { max_distance_km?: number }
-        Returns: {
-          age_range: string
-          display_name: string
-          distance_range: string
-          has_photo: boolean
-          user_id: string
-        }[]
-      }
-      get_own_profile: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          birth_date: string
-          display_name: string
-          gender: string
-          height_cm: number
-          latitude: number
-          location_city: string
-          location_country: string
-          longitude: number
-          profile_completed: boolean
-          profile_photo_url: string
-          user_id: string
-        }[]
-      }
-      get_safe_matches: {
-        Args: { max_distance_km?: number }
+      find_secure_matches_by_distance: {
+        Args: {
+          current_user_id: string
+          max_distance: number
+          preferred_age_max: number
+          preferred_age_min: number
+          preferred_genders: string[]
+          user_lat: number
+          user_lon: number
+        }
         Returns: {
           age: number
           body_type: string
           display_name: string
-          distance_range: string
+          distance_km: number
           gender: string
           height_cm: number
-          location_city: string
-          location_country: string
-          profile_photo_url: string
           skin_color: string
           user_id: string
         }[]
       }
-      get_secure_matches: {
-        Args: Record<PropertyKey, never>
+      get_matching_profiles: {
+        Args: {
+          max_distance: number
+          preferred_age_max: number
+          preferred_age_min: number
+          preferred_genders: string[]
+          user_lat: number
+          user_lon: number
+        }
         Returns: {
-          age_range: string
-          anonymous_id: string
+          age: number
           body_type: string
           display_name: string
+          distance_km: number
           gender: string
-          general_location: string
-          has_photo: boolean
-          height_category: string
+          height_cm: number
+          skin_color: string
+          user_id: string
         }[]
       }
-      get_ultra_secure_matches: {
-        Args: Record<PropertyKey, never>
+      get_notification_count_for_email: {
+        Args: { email_address: string }
+        Returns: number
+      }
+      get_user_approximate_location: {
+        Args: { user_profile_id: string }
         Returns: {
-          anonymous_ref: string
-          basic_info: string
-          public_name: string
+          approximate_lat: number
+          approximate_lon: number
+          city: string
+          country: string
         }[]
       }
       get_user_crushes: {
         Args: Record<PropertyKey, never>
         Returns: {
           created_at: string
+          email_id: string
           email_sent: boolean
+          error_message: string
           id: string
-          recipient_email: string
+          sender_user_id: string
           updated_at: string
         }[]
       }
+      get_user_location: {
+        Args: { user_profile_id: string }
+        Returns: {
+          city: string
+          country: string
+        }[]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      sanitize_text_input: {
+        Args: { input_text: string }
+        Returns: string
+      }
+      simple_notification_insert: {
+        Args: { crush_uuid: string; email_addr: string }
+        Returns: string
+      }
+      validate_email_format: {
+        Args: { email_input: string }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -499,6 +591,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
