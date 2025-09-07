@@ -107,7 +107,15 @@ const ProfileComplete = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-fabdive-blue to-fabdive-purple relative">
+    <div 
+      className="min-h-screen relative"
+      style={{
+        backgroundImage: 'url(/lovable-uploads/bd7d757f-0516-4b67-8c49-131b65dceeea.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <Header />
       
       {/* Menu button */}

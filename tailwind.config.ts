@@ -65,6 +65,7 @@ export default {
 					secondary: 'hsl(var(--fabdive-secondary))',
 					button: 'hsl(var(--fabdive-button))',
 					blue: 'hsl(var(--fabdive-blue))',
+					purple: 'hsl(var(--fabdive-purple))',
 					text: 'hsl(var(--fabdive-text))',
 					'text-main': 'hsl(var(--fabdive-text-main))',
 					'text-accent': 'hsl(var(--fabdive-text-accent))',
