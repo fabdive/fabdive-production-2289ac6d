@@ -203,7 +203,15 @@ const handler = async (req: Request): Promise<Response> => {
           `
         }
       ],
-      categories: ["crush-notification"]
+      categories: ["crush-notification"],
+      tracking_settings: {
+        click_tracking: {
+          enable: false
+        },
+        open_tracking: {
+          enable: false
+        }
+      }
     };
 
     console.log("Sending email via SendGrid API...");
