@@ -110,10 +110,10 @@ const SplashScreen = () => {
     const preloadImage = new Image();
     preloadImage.src = '/fond-temp.png';
     
-    // Délai de 0.1 seconde pour afficher le splash, puis redirection
+    // Délai de 4.5 secondes pour afficher le splash, puis redirection
     const timer = setTimeout(() => {
       checkSessionAndRedirect();
-    }, 100);
+    }, 4500);
 
     return () => {
       mounted = false;
