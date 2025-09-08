@@ -20,7 +20,7 @@ const SplashScreen = () => {
           // Rediriger directement vers la bonne étape du profil
           const { data: profile } = await supabase
             .from('profiles')
-            .select('gender, birth_date, personal_definition, location_city')
+            .select('gender, birth_date, personal_definition, location_city, personality_traits')
             .eq('user_id', session.user.id)
             .single();
 
@@ -34,6 +34,8 @@ const SplashScreen = () => {
             navigate("/profile-appearance", { replace: true });
           } else if (!profile.location_city) {
             navigate("/profile-location", { replace: true });
+          } else if (!profile.personality_traits || profile.personality_traits.length === 0) {
+            navigate("/profile-archetype", { replace: true });
           } else {
             navigate("/profile-complete", { replace: true });
           }
