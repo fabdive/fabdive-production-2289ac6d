@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const MyMatches = () => {
   return (
-    <div 
-      className="min-h-screen flex flex-col items-center justify-center px-6"
+    <>
+      <Header />
+      <div
+      className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6"
       style={{
         backgroundImage: "url('/fond-coeur.png')",
         backgroundSize: 'cover',
@@ -20,6 +23,7 @@ const MyMatches = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
