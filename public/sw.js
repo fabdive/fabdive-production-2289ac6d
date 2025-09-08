@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fabdive-v2';
+const CACHE_NAME = 'fabdive-v3';
 const urlsToCache = [
   '/',
   '/static/js/bundle.js',
