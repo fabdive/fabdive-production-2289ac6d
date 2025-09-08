@@ -30,45 +30,70 @@ const SplashScreen = () => {
             .eq('user_id', session.user.id)
             .single();
 
+          console.log('Profile data:', profile);
+          console.log('Preferences data:', preferences);
+
           if (!profile) {
+            console.log('Redirecting to profile-photo-upload: no profile');
             navigate("/profile-photo-upload", { replace: true });
           } else if (!profile.gender) {
+            console.log('Redirecting to profile-gender: no gender');
             navigate("/profile-gender", { replace: true });
           } else if (!profile.birth_date) {
+            console.log('Redirecting to profile-age: no birth_date');
             navigate("/profile-age", { replace: true });
           } else if (!profile.personal_definition || profile.personal_definition.length === 0) {
+            console.log('Redirecting to profile-appearance: no personal_definition');
             navigate("/profile-appearance", { replace: true });
           } else if (!profile.appearance_importance) {
+            console.log('Redirecting to profile-appearance-importance: no appearance_importance');
             navigate("/profile-appearance-importance", { replace: true });
           } else if (!profile.location_city) {
+            console.log('Redirecting to profile-location: no location_city');
             navigate("/profile-location", { replace: true });
           } else if (!profile.personality_traits || profile.personality_traits.length === 0) {
+            console.log('Redirecting to profile-archetype: no personality_traits');
             navigate("/profile-archetype", { replace: true });
           } else if (!preferences?.preferred_personality_types || preferences.preferred_personality_types.length === 0) {
+            console.log('Redirecting to profile-archetype-preferences: no preferred_personality_types');
             navigate("/profile-archetype-preferences", { replace: true });
-          } else if (!profile.seeking_relationship_types || profile.seeking_relationship_types.length === 0) {
+          } else if (!preferences?.seeking_relationship_types || preferences.seeking_relationship_types.length === 0) {
+            console.log('Redirecting to profile-objectives: no seeking_relationship_types in preferences');
             navigate("/profile-objectives", { replace: true });
           } else if (!preferences?.preferred_age_min || !preferences?.preferred_age_max) {
+            console.log('Redirecting to profile-target-age: no age preferences');
             navigate("/profile-target-age", { replace: true });
           } else if (!preferences?.preferred_distances || preferences.preferred_distances.length === 0) {
+            console.log('Redirecting to profile-distance: no preferred_distances');
             navigate("/profile-distance", { replace: true });
           } else if (!preferences?.preferred_body_types || preferences.preferred_body_types.length === 0) {
+            console.log('Redirecting to profile-morphology-preferences: no preferred_body_types');
             navigate("/profile-morphology-preferences", { replace: true });
           } else if (!profile.skin_color) {
+            console.log('Redirecting to profile-skin-color: no skin_color');
             navigate("/profile-skin-color", { replace: true });
           } else if (!preferences?.preferred_skin_colors || preferences.preferred_skin_colors.length === 0) {
+            console.log('Redirecting to profile-skin-color-preferences: no preferred_skin_colors');
             navigate("/profile-skin-color-preferences", { replace: true });
           } else if (!profile.height_cm) {
+            console.log('Redirecting to profile-height: no height_cm');
             navigate("/profile-height", { replace: true });
           } else if (!profile.age_confirmed) {
+            console.log('Redirecting to profile-height-confirmation: no age_confirmed');
             navigate("/profile-height-confirmation", { replace: true });
           } else if (!preferences?.preferred_heights || preferences.preferred_heights.length === 0) {
+            console.log('Redirecting to profile-height-preferences: no preferred_heights');
             navigate("/profile-height-preferences", { replace: true });
           } else if (!profile.profile_visibility) {
+            console.log('Redirecting to profile-visibility: no profile_visibility');
             navigate("/profile-visibility", { replace: true });
-          } else {
-            // Toutes les étapes sont complètes
+          } else if (!profile.profile_completed) {
+            console.log('Profile not marked as completed, redirecting to profile-complete');
             navigate("/profile-complete", { replace: true });
+          } else {
+            // Toutes les étapes sont complètes - rediriger vers les matches ou dashboard
+            console.log('Profile fully completed, redirecting to my-matches');
+            navigate("/my-matches", { replace: true });
           }
         } else {
           navigate(`/home${location.search}`, { replace: true });
