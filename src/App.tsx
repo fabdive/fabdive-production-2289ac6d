@@ -28,6 +28,7 @@ import ProfileComplete from "./pages/ProfileComplete";
 import ProfileCrush from "./pages/ProfileCrush";
 import ProfilePhotoUpload from "./pages/ProfilePhotoUpload";
 import TemporaryMessage from "./pages/TemporaryMessage";
+import MyMatches from "./pages/MyMatches";
 
 import SplashScreen from "./pages/SplashScreen";
 import NotFound from "./pages/NotFound";
@@ -61,8 +62,9 @@ const App = () => (
           <Route path="/profile-appearance-importance" element={<ProfileAppearanceImportance />} />
           <Route path="/profile-visibility" element={<ProfileVisibility />} />
           <Route path="/profile-complete" element={<ProfileComplete />} />
-          <Route path="/profile-crush" element={<ProfileCrush />} />
-          <Route path="/temporary-message" element={<TemporaryMessage />} />
+           <Route path="/profile-crush" element={<ProfileCrush />} />
+           <Route path="/temporary-message" element={<TemporaryMessage />} />
+           <Route path="/matches" element={<MyMatches />} />
           
           <Route path="/profile-interests" element={<ProfileInterests />} />
           <Route path="/profile-target-age" element={<ProfileTargetAge />} />
