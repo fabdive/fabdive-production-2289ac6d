@@ -151,7 +151,7 @@ const SplashScreen = () => {
           </h1>
           <div className="space-y-3 text-white/90 text-lg">
             <p>Choisis tes cartes</p>
-            <p>Laisse parler tes affinités</p>
+            <p>Laisse parler tes affinités</p> 
             <p>Révèle toi à ton rythme</p>
           </div>
         </div>
