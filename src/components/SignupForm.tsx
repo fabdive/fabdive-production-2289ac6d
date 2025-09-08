@@ -92,12 +92,6 @@ export function SignupForm() {
       <Header />
       <div 
         className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4"
-        style={{
-          backgroundImage: "url('/fond-temp.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
       >
         <div className="w-full max-w-md space-y-6">
           {/* Header */}
