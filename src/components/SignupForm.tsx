@@ -116,7 +116,7 @@ export function SignupForm() {
           {/* Form Card */}
           <Card className="border-white/20 bg-card/10 backdrop-blur-sm shadow-elegant">
             <CardHeader className="space-y-1" key={`header-${Date.now()}`}>
-              <CardTitle className="text-xl text-fabdive-text" key={`title-aggressive-${Math.random()}`}>
+              <CardTitle className="text-xl text-fabdive-text" key={`title-final-${Math.random()}`}>
                 {isCrushLink ? "Découvre qui c'est !" : "Rejoins la vibe de ton match idéal"}
               </CardTitle>
             </CardHeader>

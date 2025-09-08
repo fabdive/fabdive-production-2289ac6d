@@ -149,10 +149,10 @@ const SplashScreen = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6" key="title-aggressive">
             Rencontres par affinités
           </h1>
-          <div className="space-y-3 text-white/90 text-lg" key="phrases-aggressive">
-            <p key="p1-aggressive">Choisis tes cartes</p>
-            <p key="p2-aggressive">Laisse parler tes affinités</p>
-            <p key="p3-aggressive">Révèle toi à ton rythme</p>
+          <div className="space-y-3 text-white/90 text-lg" key="phrases-final-correct">
+            <p key="p1-final">Choisis tes cartes</p>
+            <p key="p2-final">Laisse parler tes affinités</p>
+            <p key="p3-final">Révèle toi à ton rythme</p>
           </div>
         </div>
       </div>
