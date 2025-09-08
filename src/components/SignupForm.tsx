@@ -15,7 +15,8 @@ import Header from "@/components/Header";
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
 export function SignupForm() {
-  console.log('SignupForm component loaded');
+  // Cache buster - force new version
+  console.log('SignupForm loaded at:', new Date().toISOString());
   const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [ageConfirmed, setAgeConfirmed] = useState(false);
