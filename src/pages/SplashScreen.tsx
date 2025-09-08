@@ -144,15 +144,15 @@ const SplashScreen = () => {
           />
         </div>
 
-        {/* Tagline - Force cache refresh */}
-        <div className="max-w-md space-y-4" key={`splash-${Date.now()}`}>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6" key="title-aggressive">
+        {/* Tagline */}
+        <div className="max-w-md space-y-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Rencontres par affinités
           </h1>
-          <div className="space-y-3 text-white/90 text-lg" key="phrases-final-correct">
-            <p key="p1-final">Choisis tes cartes</p>
-            <p key="p2-final">Laisse parler tes affinités</p>
-            <p key="p3-final">Révèle toi à ton rythme</p>
+          <div className="space-y-3 text-white/90 text-lg">
+            <p>Choisis tes cartes</p>
+            <p>Laisse parler tes affinités</p>
+            <p>Révèle toi à ton rythme</p>
           </div>
         </div>
       </div>
