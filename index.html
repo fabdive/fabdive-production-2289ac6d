@@ -30,37 +30,24 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Forcer le rechargement immédiat sans cache
-      if (performance.navigation.type !== 1) {
-        const timestamp = Date.now();
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('_t', timestamp.toString());
-        window.location.replace(currentUrl.toString());
-      }
-      
-      // Désactiver complètement les service workers et caches
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-          }
-        });
-      }
-      
-      if ('caches' in window) {
-        caches.keys().then(function(names) {
-          for (let name of names) {
-            caches.delete(name);
-          }
-        });
-      }
-      
-      // Désactiver le cache du navigateur
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-          window.location.reload();
-        });
-      }
+      // Nettoyer les caches au chargement initial uniquement
+      window.addEventListener('load', () => {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister();
+            }
+          });
+        }
+        
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            for (let name of names) {
+              caches.delete(name);
+            }
+          });
+        }
+      });
     </script>
   </body>
 </html>
