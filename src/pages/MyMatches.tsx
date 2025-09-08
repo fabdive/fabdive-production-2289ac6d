@@ -55,7 +55,7 @@ const MyMatches = () => {
               style={{ color: '#14018d' }}
               onClick={() => {
                 setShowMenu(false);
-                navigate("/profile");
+                navigate("/profile-complete");
               }}
             >
               Mon profil
