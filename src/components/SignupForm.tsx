@@ -15,9 +15,9 @@ import Header from "@/components/Header";
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
 export function SignupForm() {
-  // Force cache refresh with unique timestamp
-  const cacheKey = Date.now();
-  console.log('SignupForm v2.0 loaded:', cacheKey);
+  // AGGRESSIVE CACHE BREAK
+  const aggressiveKey = `${Date.now()}-${Math.random()}`;
+  console.log('SignupForm AGGRESSIVE v3.0:', aggressiveKey);
   const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [ageConfirmed, setAgeConfirmed] = useState(false);
@@ -115,8 +115,8 @@ export function SignupForm() {
 
           {/* Form Card */}
           <Card className="border-white/20 bg-card/10 backdrop-blur-sm shadow-elegant">
-            <CardHeader className="space-y-1">
-              <CardTitle className="text-xl text-fabdive-text">
+            <CardHeader className="space-y-1" key={`header-${Date.now()}`}>
+              <CardTitle className="text-xl text-fabdive-text" key={`title-aggressive-${Math.random()}`}>
                 {isCrushLink ? "Découvre qui c'est !" : "Rejoins la vibe de ton match idéal"}
               </CardTitle>
             </CardHeader>
