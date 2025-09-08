@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Iridescence from "../components/Iridescence";
 
 const SplashScreen = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     let mounted = true;
@@ -37,7 +38,7 @@ const SplashScreen = () => {
             navigate("/profile-complete", { replace: true });
           }
         } else {
-          navigate("/home", { replace: true });
+          navigate(`/home${location.search}`, { replace: true });
         }
       } catch (error) {
         console.error('Erreur lors de la vérification de session:', error);
