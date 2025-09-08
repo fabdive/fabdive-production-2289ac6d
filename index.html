@@ -30,36 +30,35 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Force la suppression de tous les caches et service workers
+      // Forcer le rechargement immédiat sans cache
+      if (performance.navigation.type !== 1) {
+        const timestamp = Date.now();
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('_t', timestamp.toString());
+        window.location.replace(currentUrl.toString());
+      }
+      
+      // Désactiver complètement les service workers et caches
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', async () => {
-          try {
-            // Désinscrire tous les service workers existants
-            const registrations = await navigator.serviceWorker.getRegistrations();
-            for (let registration of registrations) {
-              await registration.unregister();
-              console.log('Service Worker désinscrit:', registration);
-            }
-            
-            // Vider tous les caches
-            const cacheNames = await caches.keys();
-            for (let cacheName of cacheNames) {
-              await caches.delete(cacheName);
-              console.log('Cache supprimé:', cacheName);
-            }
-            
-            // Réinscrire le nouveau service worker
-            const registration = await navigator.serviceWorker.register('/sw.js');
-            console.log('Nouveau SW registered:', registration);
-            
-            // Forcer le rechargement après 2 secondes
-            setTimeout(() => {
-              window.location.reload(true);
-            }, 2000);
-            
-          } catch (error) {
-            console.log('Erreur lors du nettoyage:', error);
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
           }
+        });
+      }
+      
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (let name of names) {
+            caches.delete(name);
+          }
+        });
+      }
+      
+      // Désactiver le cache du navigateur
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          window.location.reload();
         });
       }
     </script>
