@@ -15,8 +15,9 @@ import Header from "@/components/Header";
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
 export function SignupForm() {
-  // Cache buster - force new version
-  console.log('SignupForm loaded at:', new Date().toISOString());
+  // Force cache refresh with unique timestamp
+  const cacheKey = Date.now();
+  console.log('SignupForm v2.0 loaded:', cacheKey);
   const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [ageConfirmed, setAgeConfirmed] = useState(false);
@@ -107,9 +108,9 @@ export function SignupForm() {
               </>
             ) : (
               <>
-                <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">Inscription</h1>
+                <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">✨ Inscription Fabdive</h1>
                 <p className="text-fabdive-text/80">
-                  Crée ton compte Fabdive
+                  🎯 Créer votre profil dès maintenant
                 </p>
               </>
             )}

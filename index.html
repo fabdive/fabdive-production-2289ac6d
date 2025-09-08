@@ -30,6 +30,9 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
+      // Solution agressive pour le cache mobile
+      const timestamp = Date.now();
+      
       // Nettoyer les caches au chargement initial uniquement
       window.addEventListener('load', () => {
         if ('serviceWorker' in navigator) {
@@ -46,6 +49,13 @@
               caches.delete(name);
             }
           });
+        }
+        
+        // Forcer le rechargement si cache détecté
+        const lastTimestamp = localStorage.getItem('lastLoad');
+        if (!lastTimestamp || timestamp - parseInt(lastTimestamp) > 30000) {
+          localStorage.setItem('lastLoad', timestamp.toString());
+          setTimeout(() => window.location.reload(), 100);
         }
       });
     </script>
