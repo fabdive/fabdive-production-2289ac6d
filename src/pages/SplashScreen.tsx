@@ -20,12 +20,15 @@ const SplashScreen = () => {
           // Rediriger directement vers la bonne étape du profil
           const { data: profile } = await supabase
             .from('profiles')
-            .select('gender, birth_date, personal_definition, location_city, personality_traits')
+            .select('gender, birth_date, personal_definition, location_city, personality_traits, profile_completed')
             .eq('user_id', session.user.id)
             .single();
 
           if (!profile) {
             navigate("/profile-photo-upload", { replace: true });
+          } else if (profile.profile_completed) {
+            // Si le profil est marqué comme complété, aller directement à la page de matches
+            navigate("/my-matches", { replace: true });
           } else if (!profile.gender) {
             navigate("/profile-gender", { replace: true });
           } else if (!profile.birth_date) {
