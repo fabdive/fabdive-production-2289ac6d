@@ -17,29 +17,57 @@ const SplashScreen = () => {
         if (!mounted) return;
         
         if (session) {
-          // Rediriger directement vers la bonne étape du profil
+          // Vérifier l'état du profil et rediriger vers la bonne étape
           const { data: profile } = await supabase
             .from('profiles')
-            .select('gender, birth_date, personal_definition, location_city, personality_traits, profile_completed')
+            .select('*')
+            .eq('user_id', session.user.id)
+            .single();
+
+          const { data: preferences } = await supabase
+            .from('user_preferences')
+            .select('*')
             .eq('user_id', session.user.id)
             .single();
 
           if (!profile) {
             navigate("/profile-photo-upload", { replace: true });
-          } else if (profile.profile_completed) {
-            // Si le profil est marqué comme complété, aller directement à la page de matches
-            navigate("/my-matches", { replace: true });
           } else if (!profile.gender) {
             navigate("/profile-gender", { replace: true });
           } else if (!profile.birth_date) {
             navigate("/profile-age", { replace: true });
           } else if (!profile.personal_definition || profile.personal_definition.length === 0) {
             navigate("/profile-appearance", { replace: true });
+          } else if (!profile.appearance_importance) {
+            navigate("/profile-appearance-importance", { replace: true });
           } else if (!profile.location_city) {
             navigate("/profile-location", { replace: true });
           } else if (!profile.personality_traits || profile.personality_traits.length === 0) {
             navigate("/profile-archetype", { replace: true });
+          } else if (!preferences?.preferred_personality_types || preferences.preferred_personality_types.length === 0) {
+            navigate("/profile-archetype-preferences", { replace: true });
+          } else if (!profile.seeking_relationship_types || profile.seeking_relationship_types.length === 0) {
+            navigate("/profile-objectives", { replace: true });
+          } else if (!preferences?.preferred_age_min || !preferences?.preferred_age_max) {
+            navigate("/profile-target-age", { replace: true });
+          } else if (!preferences?.preferred_distances || preferences.preferred_distances.length === 0) {
+            navigate("/profile-distance", { replace: true });
+          } else if (!preferences?.preferred_body_types || preferences.preferred_body_types.length === 0) {
+            navigate("/profile-morphology-preferences", { replace: true });
+          } else if (!profile.skin_color) {
+            navigate("/profile-skin-color", { replace: true });
+          } else if (!preferences?.preferred_skin_colors || preferences.preferred_skin_colors.length === 0) {
+            navigate("/profile-skin-color-preferences", { replace: true });
+          } else if (!profile.height_cm) {
+            navigate("/profile-height", { replace: true });
+          } else if (!profile.age_confirmed) {
+            navigate("/profile-height-confirmation", { replace: true });
+          } else if (!preferences?.preferred_heights || preferences.preferred_heights.length === 0) {
+            navigate("/profile-height-preferences", { replace: true });
+          } else if (!profile.profile_visibility) {
+            navigate("/profile-visibility", { replace: true });
           } else {
+            // Toutes les étapes sont complètes
             navigate("/profile-complete", { replace: true });
           }
         } else {
