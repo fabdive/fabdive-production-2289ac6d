@@ -147,7 +147,7 @@ const SplashScreen = () => {
         {/* Tagline */}
         <div className="max-w-md space-y-4">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Game of Love
+            Rencontres par affinités
           </h1>
           <div className="space-y-3 text-white/90 text-lg">
             <p>Choisis tes cartes</p>
