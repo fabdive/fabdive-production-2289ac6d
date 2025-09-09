@@ -108,7 +108,10 @@ export function SignupForm() {
               </>
             ) : (
               <>
-                <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">Inscription</h1>
+                <h1 className="text-2xl font-bold tracking-tight text-fabdive-text">✨ Inscription Fabdive</h1>
+                <p className="text-fabdive-text/80">
+                  🎯 Créer votre profil dès maintenant
+                </p>
               </>
             )}
           </div>
@@ -117,8 +120,11 @@ export function SignupForm() {
           <Card className="border-white/20 bg-card/10 backdrop-blur-sm shadow-elegant">
             <CardHeader className="space-y-1">
               <CardTitle className="text-xl text-fabdive-text">
-                {isCrushLink ? "Découvre qui c'est !" : "Rejoins la vibe de ton match idéal"}
+                {isCrushLink ? "Découvre qui c'est !" : "🚀 Nouvelle inscription"}
               </CardTitle>
+              <CardDescription className="text-fabdive-text/70">
+                {isCrushLink ? "Inscris-toi pour voir qui a pensé à toi" : "✨ Crée ton profil maintenant"}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Magic Link Form */}

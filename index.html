@@ -28,10 +28,17 @@
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx?v=20250909-cache-kill"></script>
     <script>
-      // Nettoyer les caches au chargement initial uniquement
+      // Solution ULTRA AGRESSIVE pour éliminer définitivement le cache mobile
+      const timestamp = Date.now();
+      const randomKey = Math.random().toString(36);
+      
+      console.log('CACHE KILLER v4.0:', timestamp, randomKey);
+      
+      // Nettoyer TOUT au chargement
       window.addEventListener('load', () => {
+        // Détruire tous les service workers
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.getRegistrations().then(function(registrations) {
             for(let registration of registrations) {
@@ -40,6 +47,7 @@
           });
         }
         
+        // Vider tous les caches
         if ('caches' in window) {
           caches.keys().then(function(names) {
             for (let name of names) {
@@ -47,7 +55,39 @@
             }
           });
         }
+        
+        // Forcer rechargement si cache détecté - MEGA VERSION
+        const lastTimestamp = localStorage.getItem('lastCacheKill');
+        const now = timestamp.toString();
+        
+        if (!lastTimestamp || timestamp - parseInt(lastTimestamp) > 10000) {
+          localStorage.setItem('lastCacheKill', now);
+          localStorage.setItem('cacheVersion', randomKey);
+          console.log('FORCING RELOAD - Cache detected');
+          setTimeout(() => {
+            window.location.reload(true);
+          }, 100);
+        }
       });
+      
+      // Headers anti-cache ULTRA
+      if ('fetch' in window) {
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+          const url = args[0];
+          const options = args[1] || {};
+          if (typeof url === 'string' && (url.includes('.js') || url.includes('.css'))) {
+            options.cache = 'no-store';
+            options.headers = {
+              ...options.headers,
+              'Cache-Control': 'no-cache, no-store, must-revalidate',
+              'Pragma': 'no-cache',
+              'Expires': '0'
+            };
+          }
+          return originalFetch.apply(this, [url, options]);
+        };
+      }
     </script>
   </body>
 </html>
