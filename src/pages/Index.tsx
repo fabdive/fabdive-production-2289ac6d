@@ -82,8 +82,18 @@ const Index = () => {
       } else if (!ageProfile?.personality_traits || ageProfile.personality_traits.length === 0) {
         navigate("/profile-archetype");
       } else {
-        // Profil complet, aller au profil complete
-        navigate("/profile-complete");
+        // Vérifier si le profil est marqué comme complet
+        const { data: completionCheck } = await supabase
+          .from('profiles')
+          .select('profile_completed')
+          .eq('user_id', userId)
+          .single();
+          
+        if (completionCheck?.profile_completed) {
+          navigate("/profile-complete");
+        } else {
+          navigate("/profile-archetype");
+        }
       }
       }
     } catch (error) {

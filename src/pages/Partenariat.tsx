@@ -77,20 +77,11 @@ const Partenariat = () => {
       )}
 
       {/* Main content */}
-      <div className="min-h-screen" style={{ backgroundColor: '#4238b3' }}>
+      <div className="min-h-screen" style={{ backgroundColor: '#14018d' }}>
         {/* Header section */}
         <div className="px-6 pt-16 pb-8">
-          <div className="flex items-center justify-center mb-8">
-            <div className="flex items-center" style={{ color: '#e7b95d' }}>
-              <div className="w-12 h-12 rounded-full border-2 border-yellow-400 flex items-center justify-center mr-4">
-                <div className="text-2xl">💛</div>
-              </div>
-              <h1 className="text-4xl font-bold">Fabdive</h1>
-            </div>
-          </div>
-
-          <div className="border-2 border-yellow-400 rounded-2xl p-6 mb-8">
-            <h2 className="text-white text-3xl font-bold text-center mb-6">
+          <div className="border-2 rounded-2xl p-6 mb-8" style={{ borderColor: '#e7b95d' }}>
+            <h2 className="text-3xl font-bold text-center mb-6" style={{ color: '#fff0b8' }}>
               Devenir Partenaire
             </h2>
             
@@ -135,8 +126,8 @@ const Partenariat = () => {
             </div>
             
             <div className="text-center text-white">
-              <h3 className="text-2xl font-bold mb-2">Rejoignez l'univers</h3>
-              <h3 className="text-2xl font-bold mb-4">Fabdive Affinity</h3>
+              <h3 className="text-2xl font-bold mb-2" style={{ color: '#fff0b8' }}>Rejoignez l'univers</h3>
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#fff0b8' }}>Fabdive Affinity</h3>
               <p className="text-lg">
                 Notre application redéfinit la rencontre amoureuse avec un{' '}
                 <span className="font-bold">modèle affinitaire et intuitif</span>, centré sur les{' '}
@@ -149,7 +140,7 @@ const Partenariat = () => {
 
         {/* Philosophy section */}
         <div className="px-6 py-8">
-          <h2 className="text-white text-2xl font-bold text-center mb-8">
+          <h2 className="text-2xl font-bold text-center mb-8" style={{ color: '#fff0b8' }}>
             Participez à un mouvement
           </h2>
           
@@ -173,8 +164,8 @@ const Partenariat = () => {
             </div>
           </div>
           
-          <div className="border-t border-white/30 pt-8">
-            <h3 className="text-white text-2xl font-bold text-center mb-8">
+          <div className="border-t pt-8" style={{ borderColor: '#e7b95d' }}>
+            <h3 className="text-2xl font-bold text-center mb-8" style={{ color: '#fff0b8' }}>
               Nos formules Partenaires
             </h3>
             
@@ -214,7 +205,7 @@ const Partenariat = () => {
 
         {/* Benefits section */}
         <div className="px-6 py-8">
-          <h3 className="text-white text-2xl font-bold text-center mb-8">
+          <h3 className="text-2xl font-bold text-center mb-8" style={{ color: '#fff0b8' }}>
             En rejoignant le réseau Fabdive
           </h3>
           
@@ -241,7 +232,7 @@ const Partenariat = () => {
             </div>
           </div>
           
-          <div className="border-t border-white/30 pt-8 text-center">
+          <div className="border-t pt-8 text-center" style={{ borderColor: '#e7b95d' }}>
             <p className="text-white text-xl mb-4">
               Prêt(e) à faire vibrer les affinités ?
             </p>
@@ -250,9 +241,13 @@ const Partenariat = () => {
               contactez-nous directement :
             </p>
             
-            <p className="text-yellow-400 text-xl font-bold">
+            <a 
+              href="mailto:hello@fabdive.com" 
+              className="text-xl font-bold hover:underline"
+              style={{ color: '#fff0b8' }}
+            >
               hello@fabdive.com
-            </p>
+            </a>
           </div>
         </div>
       </div>
