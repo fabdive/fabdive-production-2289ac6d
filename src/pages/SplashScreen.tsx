@@ -1,45 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Iridescence from "../components/Iridescence";
 
 const SplashScreen = () => {
-  // MEGA ULTRA cache killer v7.0 - Force complete page refresh like home page
-  const timestamp = Date.now();
-  const cacheKiller = `splash-v7-${timestamp}-${Math.random().toString(36).substr(2, 9)}`;
-  console.log('SplashScreen MEGA CACHE KILLER v7.0:', cacheKiller);
-  
+  const [isReady, setIsReady] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Ultra aggressive cache clearing like home page
+  // Initialize component state to prevent flash
   useEffect(() => {
-    const clearAllCaches = async () => {
-      // Clear service workers
-      if ('serviceWorker' in navigator) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      }
-      
-      // Clear all caches
-      if ('caches' in window) {
-        const cacheNames = await caches.keys();
-        for (let name of cacheNames) {
-          caches.delete(name);
-        }
-      }
-      
-      // Force reload if cached content detected
-      const lastSplashLoad = localStorage.getItem('lastSplashLoad');
-      if (!lastSplashLoad || timestamp - parseInt(lastSplashLoad) > 10000) {
-        localStorage.setItem('lastSplashLoad', timestamp.toString());
-        setTimeout(() => window.location.reload(), 50);
-      }
-    };
+    // Ensure content is ready before showing
+    const initTimer = setTimeout(() => {
+      setIsReady(true);
+    }, 100);
     
-    clearAllCaches();
+    return () => clearTimeout(initTimer);
   }, []);
 
   useEffect(() => {
@@ -179,17 +155,19 @@ const SplashScreen = () => {
           />
         </div>
 
-        {/* Tagline - MEGA ULTRA CACHE KILLER v7.0 */}
-        <div className="max-w-md space-y-4" key={`${cacheKiller}-content-${timestamp}`} data-version="v7.0">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6" key={`${cacheKiller}-title-${timestamp}`} data-version="v7.0" data-timestamp={timestamp}>
-            Rencontres par affinités
-          </h1>
-          <div className="space-y-3 text-white/90 text-lg" key={`${cacheKiller}-text-container-${timestamp}`} data-cache-killer={cacheKiller} data-timestamp={timestamp}>
-            <p key={`${cacheKiller}-p1-${timestamp}`} data-text="choisis" data-version="v7.0">Choisis tes cartes</p>
-            <p key={`${cacheKiller}-p2-${timestamp}`} data-text="laisse" data-version="v7.0">Laisse parler tes affinités</p> 
-            <p key={`${cacheKiller}-p3-${timestamp}`} data-text="revele" data-version="v7.0">Révèle toi à ton rythme</p>
+        {/* Content - Only show when ready */}
+        {isReady && (
+          <div className="max-w-md space-y-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Rencontres par affinités
+            </h1>
+            <div className="space-y-3 text-white/90 text-lg">
+              <p>Choisis tes cartes</p>
+              <p>Laisse parler tes affinités</p> 
+              <p>Révèle toi à ton rythme</p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
