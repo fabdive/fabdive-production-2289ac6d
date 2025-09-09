@@ -4,24 +4,14 @@ import { supabase } from "@/integrations/supabase/client";
 import Iridescence from "../components/Iridescence";
 
 const SplashScreen = () => {
-  const [isReady, setIsReady] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Initialize component state to prevent flash
-  useEffect(() => {
-    // Ensure content is ready before showing
-    const initTimer = setTimeout(() => {
-      setIsReady(true);
-    }, 100);
-    
-    return () => clearTimeout(initTimer);
-  }, []);
 
   useEffect(() => {
     let mounted = true;
     
-    const checkSessionAndRedirect = async () => {
+    const handleRedirection = async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         
@@ -117,20 +107,18 @@ const SplashScreen = () => {
       }
     };
 
-    // Précharger l'image fond-profil pour éviter le flash
-    const preloadImage = new Image();
-    preloadImage.src = '/fond-temp.png';
+    // Show content immediately, then handle redirection after delay
+    setShowContent(true);
     
-    // Délai de 4.5 secondes pour afficher le splash, puis redirection
     const timer = setTimeout(() => {
-      checkSessionAndRedirect();
-    }, 4500);
+      handleRedirection();
+    }, 3000);
 
     return () => {
       mounted = false;
       clearTimeout(timer);
     };
-  }, [navigate]);
+  }, [navigate, location.search]);
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -155,8 +143,8 @@ const SplashScreen = () => {
           />
         </div>
 
-        {/* Content - Only show when ready */}
-        {isReady && (
+        {/* Content */}
+        {showContent && (
           <div className="max-w-md space-y-4">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Rencontres par affinités
