@@ -60,6 +60,17 @@ const MyMatches = () => {
             >
               Mon profil
             </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/partenariat");
+              }}
+            >
+              Partenariat
+            </Button>
           </div>
         </div>
       )}

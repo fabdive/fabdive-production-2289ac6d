@@ -29,6 +29,7 @@ import ProfileCrush from "./pages/ProfileCrush";
 import ProfilePhotoUpload from "./pages/ProfilePhotoUpload";
 import TemporaryMessage from "./pages/TemporaryMessage";
 import MyMatches from "./pages/MyMatches";
+import Partenariat from "./pages/Partenariat";
 
 import SplashScreen from "./pages/SplashScreen";
 import NotFound from "./pages/NotFound";
@@ -65,6 +66,7 @@ const App = () => (
            <Route path="/profile-crush" element={<ProfileCrush />} />
            <Route path="/temporary-message" element={<TemporaryMessage />} />
            <Route path="/matches" element={<MyMatches />} />
+           <Route path="/partenariat" element={<Partenariat />} />
           
           <Route path="/profile-interests" element={<ProfileInterests />} />
           <Route path="/profile-target-age" element={<ProfileTargetAge />} />
