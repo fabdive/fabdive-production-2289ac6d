@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Iridescence from "../components/Iridescence";
 
-const MIN_SPLASH_MS = 3000;
+const MIN_SPLASH_MS = 4500;
 
 const SplashScreen = () => {
   const [showContent, setShowContent] = useState(true);
@@ -13,13 +13,19 @@ const SplashScreen = () => {
   useEffect(() => {
     let mounted = true;
     const startAt = performance.now();
+    console.log('[SPLASH] Component mounted at:', startAt);
 
     const handleRedirection = async () => {
+      console.log('[SPLASH] Starting redirection check...');
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (!mounted) return;
+        console.log('[SPLASH] Session check completed, session exists:', !!session);
 
-        const go = (path: string) => navigate(path, { replace: true });
+        const go = (path: string) => {
+          console.log('[SPLASH] Redirecting to:', path);
+          navigate(path, { replace: true });
+        };
 
         if (session) {
           const { data: profile } = await supabase
@@ -63,7 +69,7 @@ const SplashScreen = () => {
       }
     };
 
-    // Garantir 3s minimum d'affichage SANS provoquer de reflow
+    // Garantir 4.5s minimum d'affichage SANS provoquer de reflow
     const timer = setTimeout(() => { handleRedirection(); }, Math.max(0, MIN_SPLASH_MS - (performance.now() - startAt)));
 
     return () => { mounted = false; clearTimeout(timer); };
