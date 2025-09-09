@@ -144,15 +144,15 @@ const SplashScreen = () => {
           />
         </div>
 
-        {/* Tagline */}
-        <div className="max-w-md space-y-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
+        {/* Tagline - CACHE KILLER v5.0 */}
+        <div className="max-w-md space-y-4" key={`splash-${Date.now()}-${Math.random()}`}>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6" key={`title-${Date.now()}`}>
             Rencontres par affinités
           </h1>
-          <div className="space-y-3 text-white/90 text-lg">
-            <p>Choisis tes cartes</p>
-            <p>Laisse parler tes affinités</p> 
-            <p>Révèle toi à ton rythme</p>
+          <div className="space-y-3 text-white/90 text-lg" key={`content-${Date.now()}`}>
+            <p key={`p1-${Date.now()}`}>Choisis tes cartes</p>
+            <p key={`p2-${Date.now()}`}>Laisse parler tes affinités</p> 
+            <p key={`p3-${Date.now()}`}>Révèle toi à ton rythme</p>
           </div>
         </div>
       </div>
