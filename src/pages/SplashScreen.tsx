@@ -4,6 +4,10 @@ import { supabase } from "@/integrations/supabase/client";
 import Iridescence from "../components/Iridescence";
 
 const SplashScreen = () => {
+  // Ultra cache killer v6.0 - Force unique component instance
+  const cacheKiller = `splash-v6-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  console.log('SplashScreen CACHE KILLER v6.0:', cacheKiller);
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -144,15 +148,15 @@ const SplashScreen = () => {
           />
         </div>
 
-        {/* Tagline - CACHE KILLER v5.0 */}
-        <div className="max-w-md space-y-4" key={`splash-${Date.now()}-${Math.random()}`}>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6" key={`title-${Date.now()}`}>
+        {/* Tagline - ULTRA CACHE KILLER v6.0 */}
+        <div className="max-w-md space-y-4" key={`${cacheKiller}-content`}>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6" key={`${cacheKiller}-title`} data-version="v6.0">
             Rencontres par affinités
           </h1>
-          <div className="space-y-3 text-white/90 text-lg" key={`content-${Date.now()}`}>
-            <p key={`p1-${Date.now()}`}>Choisis tes cartes</p>
-            <p key={`p2-${Date.now()}`}>Laisse parler tes affinités</p> 
-            <p key={`p3-${Date.now()}`}>Révèle toi à ton rythme</p>
+          <div className="space-y-3 text-white/90 text-lg" key={`${cacheKiller}-text-container`} data-cache-killer={cacheKiller}>
+            <p key={`${cacheKiller}-p1`} data-text="choisis">Choisis tes cartes</p>
+            <p key={`${cacheKiller}-p2`} data-text="laisse">Laisse parler tes affinités</p> 
+            <p key={`${cacheKiller}-p3`} data-text="revele">Révèle toi à ton rythme</p>
           </div>
         </div>
       </div>
