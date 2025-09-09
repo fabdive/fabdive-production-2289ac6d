@@ -30,6 +30,7 @@ import ProfilePhotoUpload from "./pages/ProfilePhotoUpload";
 import TemporaryMessage from "./pages/TemporaryMessage";
 import MyMatches from "./pages/MyMatches";
 import Partenariat from "./pages/Partenariat";
+import Cadeaux from "./pages/Cadeaux";
 
 import SplashScreen from "./pages/SplashScreen";
 import NotFound from "./pages/NotFound";
@@ -67,6 +68,7 @@ const App = () => (
            <Route path="/temporary-message" element={<TemporaryMessage />} />
            <Route path="/matches" element={<MyMatches />} />
            <Route path="/partenariat" element={<Partenariat />} />
+           <Route path="/cadeaux" element={<Cadeaux />} />
           
           <Route path="/profile-interests" element={<ProfileInterests />} />
           <Route path="/profile-target-age" element={<ProfileTargetAge />} />

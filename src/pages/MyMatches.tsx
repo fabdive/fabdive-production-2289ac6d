@@ -66,11 +66,30 @@ const MyMatches = () => {
               style={{ color: '#14018d' }}
               onClick={() => {
                 setShowMenu(false);
-                navigate("/partenariat");
+                navigate("/profile-crush");
               }}
             >
-              Partenariat
+              Crush
             </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/cadeaux");
+              }}
+            >
+              Cadeaux
+            </Button>
+            <a
+              href="mailto:hello@fabdive.com"
+              className="block w-full text-left px-4 py-2 rounded-md hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => setShowMenu(false)}
+            >
+              Partenariat
+            </a>
           </div>
         </div>
       )}

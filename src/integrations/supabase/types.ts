@@ -124,6 +124,33 @@ export type Database = {
         }
         Relationships: []
       }
+      points_gained: {
+        Row: {
+          created_at: string
+          id: string
+          points_amount: number
+          reason: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          points_amount?: number
+          reason: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          points_amount?: number
+          reason?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           age_confirmed: boolean | null
@@ -241,6 +268,42 @@ export type Database = {
           ip_address?: unknown | null
           user_agent?: string | null
           user_id?: string | null
+        }
+        Relationships: []
+      }
+      subscription_offered: {
+        Row: {
+          created_at: string
+          duration_months: number
+          end_date: string
+          id: string
+          is_active: boolean
+          start_date: string
+          subscription_type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          duration_months?: number
+          end_date?: string
+          id?: string
+          is_active?: boolean
+          start_date?: string
+          subscription_type?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          duration_months?: number
+          end_date?: string
+          id?: string
+          is_active?: boolean
+          start_date?: string
+          subscription_type?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
