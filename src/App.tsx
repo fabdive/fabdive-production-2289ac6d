@@ -33,6 +33,7 @@ import Partenariat from "./pages/Partenariat";
 import Cadeaux from "./pages/Cadeaux";
 import QuizAmour from "./pages/QuizAmour";
 import QuizSentiment from "./pages/QuizSentiment";
+import QuizAffinite from "./pages/QuizAffinite";
 
 import SplashScreen from "./pages/SplashScreen";
 import NotFound from "./pages/NotFound";
@@ -73,6 +74,7 @@ const App = () => (
            <Route path="/cadeaux" element={<Cadeaux />} />
            <Route path="/quiz-amour" element={<QuizAmour />} />
            <Route path="/quiz-sentiment" element={<QuizSentiment />} />
+           <Route path="/quiz-affinite" element={<QuizAffinite />} />
           
           <Route path="/profile-interests" element={<ProfileInterests />} />
           <Route path="/profile-target-age" element={<ProfileTargetAge />} />
