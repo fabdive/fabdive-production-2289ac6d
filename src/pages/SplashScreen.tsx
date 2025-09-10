@@ -86,7 +86,7 @@ const SplashScreen = () => {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] px-6 text-center">
         <div className="mb-8">
           <img
-            src="/2logo-fabdive.png"
+            src="/2logo-fabdive.png?v=3"
             alt="Fabdive Logo"
             width={256}
             height={96}
