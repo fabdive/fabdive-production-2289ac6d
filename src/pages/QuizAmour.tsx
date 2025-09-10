@@ -12,7 +12,7 @@ const QuizAmour = () => {
         </h1>
         
         {/* Quiz intégré */}
-        <div className="bg-white rounded-lg shadow-lg p-4 mb-8">
+        <div className="rounded-lg shadow-lg mb-8">
           <iframe
             src="https://tally.so/embed/mRNbpv?alignLeft=1&hideTitle=1&dynamicHeight=1"
             width="100%"
