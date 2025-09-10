@@ -40,7 +40,7 @@ const SplashScreen = () => {
             .eq("user_id", session.user.id)
             .single();
 
-          if (!profile) go("/profile-photo-upload");
+          if (!profile || !profile.profile_photo_url) go("/profile-photo-upload");
           else if (!profile.gender) go("/profile-gender");
           else if (!profile.birth_date) go("/profile-age");
           else if (!profile.personal_definition || profile.personal_definition.length === 0) go("/profile-appearance");
