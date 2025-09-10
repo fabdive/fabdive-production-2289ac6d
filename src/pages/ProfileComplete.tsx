@@ -189,14 +189,17 @@ const ProfileComplete = () => {
             >
               Cadeaux
             </Button>
-            <a
-              href="mailto:hello@fabdive.com"
-              className="block w-full text-left px-4 py-2 rounded-md hover:bg-white/10"
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
               style={{ color: '#14018d' }}
-              onClick={() => setShowMenu(false)}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/partenariat");
+              }}
             >
               Partenariat
-            </a>
+            </Button>
           </div>
         </div>
       )}
