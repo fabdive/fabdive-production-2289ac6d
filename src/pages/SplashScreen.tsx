@@ -88,12 +88,12 @@ const SplashScreen = () => {
           <img
             src="/2logo-fabdive.png?v=3"
             alt="Fabdive Logo"
-            width="256"
-            height="96"
+            width="200"
+            height="200"
             decoding="async"
             fetchPriority="high"
-            className="w-64 h-auto mx-auto mb-4"
-            style={{ aspectRatio: '256/96' }}
+            className="w-50 h-auto mx-auto mb-4"
+            style={{ aspectRatio: '200/200' }}
           />
         </div>
 
