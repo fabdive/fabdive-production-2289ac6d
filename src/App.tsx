@@ -31,6 +31,7 @@ import TemporaryMessage from "./pages/TemporaryMessage";
 import MyMatches from "./pages/MyMatches";
 import Partenariat from "./pages/Partenariat";
 import Cadeaux from "./pages/Cadeaux";
+import QuizAmour from "./pages/QuizAmour";
 
 import SplashScreen from "./pages/SplashScreen";
 import NotFound from "./pages/NotFound";
@@ -69,6 +70,7 @@ const App = () => (
            <Route path="/matches" element={<MyMatches />} />
            <Route path="/partenariat" element={<Partenariat />} />
            <Route path="/cadeaux" element={<Cadeaux />} />
+           <Route path="/quiz-amour" element={<QuizAmour />} />
           
           <Route path="/profile-interests" element={<ProfileInterests />} />
           <Route path="/profile-target-age" element={<ProfileTargetAge />} />
