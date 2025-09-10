@@ -57,6 +57,7 @@ export const CookieConsent = ({ onAccept, onDecline, onClose }: CookieConsentPro
               size="sm"
               onClick={handleClose}
               className="h-5 w-5 p-0"
+              aria-label="Fermer la notification des cookies"
             >
               <X className="h-3 w-3" />
             </Button>
