@@ -14,7 +14,7 @@ const QuizAmour = () => {
         {/* Quiz intégré */}
         <div className="bg-white rounded-lg shadow-lg p-4 mb-8">
           <iframe
-            src="https://tally.so/embed/mRNbpv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            src="https://tally.so/embed/mRNbpv?alignLeft=1&hideTitle=1&dynamicHeight=1"
             width="100%"
             height="600"
             frameBorder="0"
