@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Menu, X } from "lucide-react";
 import Iridescence from "../components/Iridescence";
 
 const TemporaryMessage = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
 
   const handleContinue = () => {
@@ -27,6 +29,89 @@ const TemporaryMessage = () => {
       <div className="relative z-10">
         <Header />
       </div>
+      
+      {/* Menu button */}
+      <div className="absolute top-4 right-4 z-20">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setShowMenu(!showMenu)}
+          className="bg-yellow-400 hover:bg-yellow-500"
+          style={{ backgroundColor: '#e7b95d' }}
+        >
+          <Menu className="w-6 h-6" style={{ color: '#14018d' }} />
+        </Button>
+      </div>
+
+      {/* Menu overlay */}
+      {showMenu && (
+        <div className="absolute top-0 right-0 w-64 h-full shadow-lg z-30 p-4" style={{ backgroundColor: '#e7b95d' }}>
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-lg font-semibold" style={{ color: '#14018d' }}>Menu</h3>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowMenu(false)}
+            >
+              <X className="w-5 h-5" style={{ color: '#14018d' }} />
+            </Button>
+          </div>
+          <div className="space-y-6">
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/matches");
+              }}
+            >
+              Mes matches
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/profile-complete");
+              }}
+            >
+              Mon profil
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/profile-crush");
+              }}
+            >
+              Crush
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/cadeaux");
+              }}
+            >
+              Cadeaux
+            </Button>
+            <a
+              href="mailto:hello@fabdive.com"
+              className="block w-full text-left px-4 py-2 rounded-md hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => setShowMenu(false)}
+            >
+              Partenariat
+            </a>
+          </div>
+        </div>
+      )}
       
       {/* Main content */}
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-6 text-center pt-16">
