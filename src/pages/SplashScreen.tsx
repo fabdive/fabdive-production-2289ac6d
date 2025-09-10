@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Iridescence from "../components/Iridescence";
+import { Sparkles, Heart, Eye } from "lucide-react";
 
 const MIN_SPLASH_MS = 4500;
 
@@ -98,11 +99,23 @@ const SplashScreen = () => {
 
         {showContent && (
           <div className="max-w-md space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Rencontres par affinités</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">💫 Rencontres par affinités 💫</h1>
             <div className="space-y-3 text-white/90 text-lg">
-              <p>Choisis tes cartes</p>
-              <p>Laisse parler tes affinités</p>
-              <p>Révèle toi à ton rythme</p>
+              <p className="flex items-center justify-center gap-2">
+                <Sparkles className="w-5 h-5" />
+                Choisis tes cartes
+                <Sparkles className="w-5 h-5" />
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <Heart className="w-5 h-5" />
+                Laisse parler tes affinités
+                <Heart className="w-5 h-5" />
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <Eye className="w-5 h-5" />
+                Révèle toi à ton rythme
+                <Eye className="w-5 h-5" />
+              </p>
             </div>
           </div>
         )}
