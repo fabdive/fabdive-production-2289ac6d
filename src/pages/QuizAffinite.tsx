@@ -1,6 +1,9 @@
 import Header from "@/components/Header";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const QuizAffinite = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary via-primary-dark to-primary-darker">
       <Header />
@@ -66,6 +69,16 @@ const QuizAffinite = () => {
               Les abonnements démarrent automatiquement à l'ouverture officielle du site ou de l'application.
             </p>
           </div>
+        </div>
+        
+        {/* Bouton vers Quiz Amour */}
+        <div className="text-center mt-8">
+          <Button 
+            onClick={() => navigate('/quiz-amour')}
+            className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-3 text-lg"
+          >
+            Découvre si tu es prêt(e) pour l'amour
+          </Button>
         </div>
       </div>
     </div>
