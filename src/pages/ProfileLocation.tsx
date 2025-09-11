@@ -6,20 +6,12 @@ import { useToast } from "@/hooks/use-toast";
 
 const ProfileLocation = () => {
   const [userName, setUserName] = useState<string>("");
-  const [userSkinColor, setUserSkinColor] = useState<string>("");
-  const [selectedSkinColors, setSelectedSkinColors] = useState<string[]>([]);
   const [city, setCity] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const skinColorOptions = [
-    { id: 'clair', label: 'Clair', image: '/couleur-clair.png' },
-    { id: 'beige', label: 'Beige', image: '/couleur-beige.png' },
-    { id: 'brun', label: 'Brun', image: '/couleur-brun.png' },
-    { id: 'cafe', label: 'Café', image: '/couleur-cafe.png' }
-  ];
 
   useEffect(() => {
     checkAuthAndLoadProfile();
@@ -37,7 +29,7 @@ const ProfileLocation = () => {
       // Charger le profil existant
       const { data: profile, error } = await supabase
         .from('profiles')
-        .select('display_name, skin_color, location_city, location_country')
+        .select('display_name, location_city, location_country')
         .eq('user_id', user.id)
         .maybeSingle();
 
@@ -54,7 +46,6 @@ const ProfileLocation = () => {
       // Définir le nom d'affichage
       const displayName = profile?.display_name || user.user_metadata?.display_name || user.email?.split('@')[0] || 'Utilisateur';
       setUserName(displayName);
-      setUserSkinColor(profile?.skin_color || 'clair');
 
       // Charger les données de localisation depuis le profil
       if (profile) {
@@ -231,10 +222,6 @@ const ProfileLocation = () => {
     }
   };
 
-  const getUserSkinColorImage = () => {
-    const skinColorOption = skinColorOptions.find(option => option.id === userSkinColor);
-    return skinColorOption?.image || '/couleur-clair.png';
-  };
 
   return (
     <div className="min-h-screen">

@@ -139,7 +139,7 @@ const ProfileMorphologyPreferences = () => {
       }
 
       // Navigation vers la prochaine page
-      navigate('/profile-skin-color');
+      navigate('/profile-location');
       
     } catch (error) {
       console.error('Erreur:', error);

@@ -52,8 +52,6 @@ const SplashScreen = () => {
           else if (!preferences?.preferred_age_min || !preferences?.preferred_age_max) go("/profile-target-age");
           else if (!preferences?.preferred_distances || preferences.preferred_distances.length === 0) go("/profile-distance");
           else if (!preferences?.preferred_body_types || preferences.preferred_body_types.length === 0) go("/profile-morphology-preferences");
-          else if (!profile.skin_color) go("/profile-skin-color");
-          else if (!preferences?.preferred_skin_colors || preferences.preferred_skin_colors.length === 0) go("/profile-skin-color-preferences");
           else if (!profile.height_cm) go("/profile-height");
           else if (!profile.age_confirmed) go("/profile-height-confirmation");
           else if (!preferences?.preferred_heights || preferences.preferred_heights.length === 0) go("/profile-height-preferences");

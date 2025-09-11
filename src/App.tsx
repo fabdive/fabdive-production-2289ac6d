@@ -9,8 +9,6 @@ import ProfileGender from "./pages/ProfileGender";
 import ProfileAge from "./pages/ProfileAge";
 import ProfileAppearance from "./pages/ProfileAppearance";
 import ProfileMorphologyPreferences from "./pages/ProfileMorphologyPreferences";
-import ProfileSkinColor from "./pages/ProfileSkinColor";
-import ProfileSkinColorPreferences from "./pages/ProfileSkinColorPreferences";
 import ProfileLocation from "./pages/ProfileLocation";
 import ProfileDistance from "./pages/ProfileDistance";
 import ProfileInterests from "./pages/ProfileInterests";
@@ -56,8 +54,6 @@ const App = () => (
            <Route path="/profile-age" element={<ProfileAge />} />
           <Route path="/profile-appearance" element={<ProfileAppearance />} />
           <Route path="/profile-morphology-preferences" element={<ProfileMorphologyPreferences />} />
-          <Route path="/profile-skin-color" element={<ProfileSkinColor />} />
-          <Route path="/profile-skin-color-preferences" element={<ProfileSkinColorPreferences />} />
           <Route path="/profile-location" element={<ProfileLocation />} />
           <Route path="/profile-distance" element={<ProfileDistance />} />
           <Route path="/profile-objectives" element={<ProfileObjectives />} />

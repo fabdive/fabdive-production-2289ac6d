@@ -177,7 +177,6 @@ export type Database = {
           profile_photo_url: string | null
           profile_visibility: string | null
           seeking_relationship_types: string[] | null
-          skin_color: string | null
           updated_at: string
           user_id: string
         }
@@ -206,7 +205,6 @@ export type Database = {
           profile_photo_url?: string | null
           profile_visibility?: string | null
           seeking_relationship_types?: string[] | null
-          skin_color?: string | null
           updated_at?: string
           user_id: string
         }
@@ -235,7 +233,6 @@ export type Database = {
           profile_photo_url?: string | null
           profile_visibility?: string | null
           seeking_relationship_types?: string[] | null
-          skin_color?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -319,7 +316,6 @@ export type Database = {
           preferred_genders: string[] | null
           preferred_heights: string[] | null
           preferred_personality_types: string[] | null
-          preferred_skin_colors: string[] | null
           seeking_relationship_types: string[] | null
           updated_at: string
           user_id: string
@@ -335,7 +331,6 @@ export type Database = {
           preferred_genders?: string[] | null
           preferred_heights?: string[] | null
           preferred_personality_types?: string[] | null
-          preferred_skin_colors?: string[] | null
           seeking_relationship_types?: string[] | null
           updated_at?: string
           user_id: string
@@ -351,7 +346,6 @@ export type Database = {
           preferred_genders?: string[] | null
           preferred_heights?: string[] | null
           preferred_personality_types?: string[] | null
-          preferred_skin_colors?: string[] | null
           seeking_relationship_types?: string[] | null
           updated_at?: string
           user_id?: string
