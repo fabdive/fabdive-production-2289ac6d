@@ -284,7 +284,7 @@ const ProfileAge = () => {
 
           {/* Question */}
           <h1 className="text-2xl font-semibold mb-8 font-comfortaa animate-fade-in-1" style={{ color: '#fffae6' }}>
-            {userName}, quel âge as-tu ?
+            {userName}, ta date de naissance ?
           </h1>
 
           {/* Sélecteurs de date */}
