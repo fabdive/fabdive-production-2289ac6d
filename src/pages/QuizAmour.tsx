@@ -77,7 +77,7 @@ const QuizAmour = () => {
             onClick={() => navigate('/')}
             className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-3 text-lg"
           >
-            Retour à l'accueil
+            Fabdive
           </Button>
         </div>
       </div>
