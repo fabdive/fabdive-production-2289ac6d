@@ -208,11 +208,6 @@ const ProfileAge = () => {
         return;
       }
 
-      toast({
-        title: "Profil enregistré !",
-        description: "Vos informations ont été sauvegardées avec succès.",
-      });
-
       navigate("/profile-appearance");
 
     } catch (error) {

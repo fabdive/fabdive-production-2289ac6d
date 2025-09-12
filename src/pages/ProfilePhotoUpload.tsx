@@ -110,15 +110,8 @@ const ProfilePhotoUpload = () => {
         throw profileError;
       }
       
-      toast({
-        title: "Photo enregistrée !",
-        description: "Votre photo a été sauvegardée avec succès.",
-      });
-
       // Navigate to gender selection
-      setTimeout(() => {
-        navigate("/profile-gender");
-      }, 1000);
+      navigate("/profile-gender");
 
     } catch (error) {
       console.error('Erreur lors de la sauvegarde de la photo:', error);

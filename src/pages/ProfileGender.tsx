@@ -106,15 +106,8 @@ const ProfileGender = () => {
         return;
       }
 
-      toast({
-        title: "Genre enregistré !",
-        description: "Votre sélection a été sauvegardée avec succès.",
-      });
-
       // Navigate to next step after successful save
-      setTimeout(() => {
-        navigate("/profile-age");
-      }, 1000);
+      navigate("/profile-age");
 
     } catch (error) {
       console.error('Erreur lors de la sauvegarde du genre:', error);
