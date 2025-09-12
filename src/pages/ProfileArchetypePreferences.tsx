@@ -11,22 +11,16 @@ const ProfileArchetypePreferences = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const femaleArchetypes = [
-    { id: 'reveuse', label: 'Rêveuse', image: '/f-reveuse.png' },
-    { id: 'leader', label: 'Leader', image: '/f-leader.png' },
-    { id: 'naturelle', label: 'Naturelle', image: '/f-naturelle.png' },
-    { id: 'sophistiquee', label: 'Sophistiquée', image: '/f-sophis.png' },
-    { id: 'rebelle', label: 'Rebelle', image: '/f-rebelle.png' },
-    { id: 'epicurienne', label: 'Épicurienne', image: '/f-epicure.png' }
-  ];
-
-  const maleArchetypes = [
-    { id: 'creatif', label: 'Créatif', image: '/h-creatif.png' },
-    { id: 'nomade', label: 'Nomade', image: '/h-nomade.png' },
-    { id: 'protecteur', label: 'Protecteur', image: '/h-protecteur.png' },
-    { id: 'solitaire', label: 'Solitaire', image: '/h-solitaire.png' },
-    { id: 'sportif', label: 'Sportif', image: '/h-sportif.png' },
-    { id: 'stratege', label: 'Stratège', image: '/h-stratege.png' }
+  const archetypes = [
+    { id: 'creatif', label: 'Créatif / Artiste', image: '/p-creatif.jpg' },
+    { id: 'nomade', label: 'Nomade / Aventurier', image: '/p-nomad.jpg' },
+    { id: 'protecteur', label: 'Protecteur / Bienveillant', image: '/p-protecteur.jpg' },
+    { id: 'sportif', label: 'Sportif / Énergique', image: '/p-sportif.jpg' },
+    { id: 'leader', label: 'Leader / Motivateur', image: '/p-leader.jpg' },
+    { id: 'reveur', label: 'Rêveur / Idéaliste', image: '/p-reveur.jpg' },
+    { id: 'naturel', label: 'Naturel / Authentique', image: '/p-naturel.jpg' },
+    { id: 'sophistique', label: 'Sophistiqué / Raffiné', image: '/p-sophist.jpg' },
+    { id: 'rebelle', label: 'Rebelle / Esprit libre', image: '/p-rebel.jpg' }
   ];
 
   useEffect(() => {
@@ -43,8 +37,6 @@ const ProfileArchetypePreferences = () => {
         navigate('/login');
         return;
       }
-
-      // Charger les préférences de genre depuis user_preferences
 
       // Charger les préférences existantes
       const { data: preferences, error: prefError } = await supabase
@@ -142,26 +134,6 @@ const ProfileArchetypePreferences = () => {
     }
   };
 
-  // Afficher les archétypes selon les préférences de genre
-  let archetypes = [];
-  let genderLabel = '';
-  
-  if (preferredGenders.includes('homme') && preferredGenders.includes('femme')) {
-    // Si les deux genres sont sélectionnés, afficher tous les archétypes
-    archetypes = [...maleArchetypes, ...femaleArchetypes];
-    genderLabel = 'qui t\'attirent';
-  } else if (preferredGenders.includes('homme')) {
-    archetypes = maleArchetypes;
-    genderLabel = 'masculins';
-  } else if (preferredGenders.includes('femme')) {
-    archetypes = femaleArchetypes;
-    genderLabel = 'féminins';
-  } else {
-    // Par défaut, afficher tous les archétypes
-    archetypes = [...maleArchetypes, ...femaleArchetypes];
-    genderLabel = 'qui t\'attirent';
-  }
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -179,11 +151,8 @@ const ProfileArchetypePreferences = () => {
         <div className="relative z-10 flex flex-col items-center justify-center min-h-full px-6 text-center pt-16 pb-8">
           
           {/* Question */}
-          <h1 className="text-3xl font-bold text-center text-white mb-2 font-comfortaa animate-fade-in">
-            {genderLabel === 'qui t\'attirent' ? 'Quels archétypes' : `Quels archétypes ${genderLabel}`}
-          </h1>
           <h1 className="text-3xl font-bold text-center text-white mb-4 font-comfortaa animate-fade-in">
-            {genderLabel === 'qui t\'attirent' ? genderLabel : 't\'attirent ?'}
+            Quels profils t'attirent ?
           </h1>
           
           <p className="text-lg mb-8 font-comfortaa animate-fade-in-2 text-white/90">

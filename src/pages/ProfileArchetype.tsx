@@ -11,22 +11,16 @@ const ProfileArchetype = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const femaleArchetypes = [
-    { id: 'reveuse', label: 'Rêveuse', image: '/f-reveuse.png' },
-    { id: 'leader', label: 'Leader', image: '/f-leader.png' },
-    { id: 'naturelle', label: 'Naturelle', image: '/f-naturelle.png' },
-    { id: 'sophistiquee', label: 'Sophistiquée', image: '/f-sophis.png' },
-    { id: 'rebelle', label: 'Rebelle', image: '/f-rebelle.png' },
-    { id: 'epicurienne', label: 'Épicurienne', image: '/f-epicure.png' }
-  ];
-
-  const maleArchetypes = [
-    { id: 'creatif', label: 'Créatif', image: '/h-creatif.png' },
-    { id: 'nomade', label: 'Nomade', image: '/h-nomade.png' },
-    { id: 'protecteur', label: 'Protecteur', image: '/h-protecteur.png' },
-    { id: 'solitaire', label: 'Solitaire', image: '/h-solitaire.png' },
-    { id: 'sportif', label: 'Sportif', image: '/h-sportif.png' },
-    { id: 'stratege', label: 'Stratège', image: '/h-stratege.png' }
+  const archetypes = [
+    { id: 'creatif', label: 'Créatif / Artiste', image: '/p-creatif.jpg' },
+    { id: 'nomade', label: 'Nomade / Aventurier', image: '/p-nomad.jpg' },
+    { id: 'protecteur', label: 'Protecteur / Bienveillant', image: '/p-protecteur.jpg' },
+    { id: 'sportif', label: 'Sportif / Énergique', image: '/p-sportif.jpg' },
+    { id: 'leader', label: 'Leader / Motivateur', image: '/p-leader.jpg' },
+    { id: 'reveur', label: 'Rêveur / Idéaliste', image: '/p-reveur.jpg' },
+    { id: 'naturel', label: 'Naturel / Authentique', image: '/p-naturel.jpg' },
+    { id: 'sophistique', label: 'Sophistiqué / Raffiné', image: '/p-sophist.jpg' },
+    { id: 'rebelle', label: 'Rebelle / Esprit libre', image: '/p-rebel.jpg' }
   ];
 
   useEffect(() => {
@@ -141,7 +135,7 @@ const ProfileArchetype = () => {
     }
   };
 
-  const archetypes = userGender === 'femme' ? femaleArchetypes : maleArchetypes;
+  
 
   return (
     <div className="min-h-screen">
