@@ -154,7 +154,7 @@ const ProfileComplete = () => {
                 navigate("/matches");
               }}
             >
-              Mes matches
+              Mes matchs
             </Button>
             <Button
               variant="ghost"
@@ -176,7 +176,7 @@ const ProfileComplete = () => {
                 navigate("/profile-crush");
               }}
             >
-              Crush
+              Mes crushs
             </Button>
             <Button
               variant="ghost"
@@ -187,7 +187,7 @@ const ProfileComplete = () => {
                 navigate("/cadeaux");
               }}
             >
-              Cadeaux
+              Mes cadeaux
             </Button>
             <Button
               variant="ghost"
