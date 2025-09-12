@@ -71,13 +71,13 @@ const QuizAffinite = () => {
           </div>
         </div>
         
-        {/* Bouton vers Quiz Amour */}
+        {/* Bouton vers Splash Screen */}
         <div className="text-center mt-8">
           <Button 
-            onClick={() => navigate('/quiz-amour')}
+            onClick={() => navigate('/')}
             className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-3 text-lg"
           >
-            Découvre si tu es prêt(e) pour l'amour
+            Fabdive
           </Button>
         </div>
       </div>
