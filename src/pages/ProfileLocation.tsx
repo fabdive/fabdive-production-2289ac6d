@@ -104,10 +104,6 @@ const ProfileLocation = () => {
           setCity(data.city || '');
           setCountry(data.country || '');
           
-          toast({
-            title: "Succès",
-            description: "Position actuelle utilisée",
-          });
 
         } catch (error) {
           console.error('Erreur géolocalisation:', error);
@@ -202,11 +198,6 @@ const ProfileLocation = () => {
         setIsLoading(false);
         return;
       }
-
-      toast({
-        title: "Succès",
-        description: "Localisation sauvegardée avec succès",
-      });
 
       // Navigation vers la prochaine page
       navigate('/profile-distance');

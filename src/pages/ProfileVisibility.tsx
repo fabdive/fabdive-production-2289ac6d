@@ -136,11 +136,6 @@ const ProfileVisibility = () => {
         return;
       }
 
-      toast({
-        title: "Succès",
-        description: "Préférences sauvegardées avec succès",
-      });
-
       // Navigation vers la page de profil complet
       navigate('/profile-complete');
       

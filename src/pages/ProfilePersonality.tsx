@@ -110,11 +110,6 @@ const ProfilePersonality = () => {
         return;
       }
 
-      toast({
-        title: "Succès",
-        description: "Traits de personnalité sauvegardés avec succès",
-      });
-
       // Navigation vers la prochaine page
       navigate('/profile-archetype');
       

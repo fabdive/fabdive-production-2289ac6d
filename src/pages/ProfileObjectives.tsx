@@ -101,11 +101,6 @@ const ProfileObjectives = () => {
         return;
       }
 
-      toast({
-        title: "Succès",
-        description: "Objectifs sauvegardés avec succès",
-      });
-
       // Navigation vers la prochaine page
       navigate('/profile-personality');
       

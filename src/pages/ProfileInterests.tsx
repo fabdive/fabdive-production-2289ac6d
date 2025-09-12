@@ -128,10 +128,6 @@ const ProfileInterests = () => {
         return;
       }
 
-      toast({
-        title: "Succès",
-        description: "Préférences enregistrées !",
-      });
 
       setIsLoading(false);
       

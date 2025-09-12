@@ -100,11 +100,6 @@ const ProfileAppearanceImportance = () => {
         return;
       }
 
-      toast({
-        title: "Succès",
-        description: "Préférence sauvegardée avec succès",
-      });
-
       // Navigation vers la prochaine page
       navigate('/profile-visibility');
       

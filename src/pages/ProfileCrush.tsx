@@ -56,8 +56,6 @@ const ProfileCrush = () => {
           return;
         }
 
-        toast.success("Message envoyé avec succès !");
-        
         // Navigate to temporary message page after a short delay
         setTimeout(() => {
           navigate("/temporary-message");

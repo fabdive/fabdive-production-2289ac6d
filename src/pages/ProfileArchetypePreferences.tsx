@@ -115,11 +115,6 @@ const ProfileArchetypePreferences = () => {
         return;
       }
 
-      toast({
-        title: "Succès",
-        description: "Préférences d'archétypes sauvegardées avec succès",
-      });
-
       // Navigation vers la prochaine page
       navigate('/profile-appearance-importance');
       
