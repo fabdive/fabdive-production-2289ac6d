@@ -131,7 +131,7 @@ const ProfilePhotoUpload = () => {
   return (
     <>
       <Header />
-      <div className="min-h-[calc(100vh-80px)] relative overflow-hidden bg-background">
+      <div className="min-h-[calc(100vh-80px)] relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #19019F, #C60D87, #FF41BE)' }}>
         
         <div className="relative z-10 flex flex-col items-center justify-center min-h-full px-6 text-center pt-16">
           {/* Title */}
