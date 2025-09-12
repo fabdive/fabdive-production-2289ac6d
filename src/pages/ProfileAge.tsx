@@ -251,17 +251,7 @@ const ProfileAge = () => {
   return (
     <>
       <Header />
-      <div 
-        className="min-h-[calc(100vh-80px)] relative overflow-hidden"
-        style={{
-          backgroundImage: 'url(/lovable-uploads/79534e7d-2c05-4985-82c5-60b4b4fc78b4.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black/20"></div>
+      <div className="min-h-[calc(100vh-80px)] relative overflow-hidden bg-background">
         
         <div className="relative z-10 flex flex-col items-center justify-center min-h-full px-6 text-center pt-16">
           {/* Profile Summary - Genre Image Only */}
