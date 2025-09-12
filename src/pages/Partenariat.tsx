@@ -48,7 +48,7 @@ const Partenariat = () => {
                 navigate("/matches");
               }}
             >
-              Mes matches
+              Mes matchs
             </Button>
             <Button
               variant="ghost"
@@ -60,6 +60,28 @@ const Partenariat = () => {
               }}
             >
               Mon profil
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/profile-crush");
+              }}
+            >
+              Mes crushs
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start hover:bg-white/10"
+              style={{ color: '#14018d' }}
+              onClick={() => {
+                setShowMenu(false);
+                navigate("/cadeaux");
+              }}
+            >
+              Mes cadeaux
             </Button>
             <Button
               variant="ghost"

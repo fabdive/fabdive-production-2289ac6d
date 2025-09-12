@@ -85,7 +85,7 @@ const Cadeaux = () => {
                 navigate("/matches");
               }}
             >
-              Mes matches
+              Mes matchs
             </Button>
             <Button
               variant="ghost"
@@ -107,7 +107,7 @@ const Cadeaux = () => {
                 navigate("/profile-crush");
               }}
             >
-              Crush
+              Mes crushs
             </Button>
             <Button
               variant="ghost"
@@ -118,7 +118,7 @@ const Cadeaux = () => {
                 navigate("/cadeaux");
               }}
             >
-              Cadeaux
+              Mes cadeaux
             </Button>
             <Button
               variant="ghost"

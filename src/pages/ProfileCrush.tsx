@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
-import { Menu, Send, X } from "lucide-react";
+import { Send, X } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 const ProfileCrush = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [showMenu, setShowMenu] = useState(false);
+  
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -81,18 +81,6 @@ const ProfileCrush = () => {
       {/* Header */}
       <Header />
       
-      {/* Menu button */}
-      <div className="absolute top-4 right-4 z-20">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setShowMenu(!showMenu)}
-          className="bg-yellow-400 hover:bg-yellow-500"
-          style={{ backgroundColor: '#e7b95d' }}
-        >
-          <Menu className="w-6 h-6" style={{ color: '#14018d' }} />
-        </Button>
-      </div>
 
 
       {/* Main content */}
