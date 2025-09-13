@@ -168,6 +168,14 @@ const Cadeaux = () => {
               GAGNE DES POINTS
             </h2>
             
+            <div className="bg-white/90 rounded-xl p-4 mb-6">
+              <p className="text-purple-800 text-center leading-relaxed">
+                Les points fabdive sont une monnaie douce à l'intérieur de l'application.
+                Ils te permettent de débloquer des fonctionnalités utiles ou ludiques sans avoir à payer à chaque fois.
+                Gagne des points en étant actif. Utilise-les pour enrichir tes connexions.
+              </p>
+            </div>
+            
             <div className="bg-white/90 rounded-xl p-6">
               <h3 className="text-purple-800 text-xl font-bold mb-4">
                 COMMENT OBTENIR DES POINTS ?
@@ -218,10 +226,7 @@ const Cadeaux = () => {
                   <span className="text-pink-600 font-bold">50</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <div className="flex items-center">
-                    <span className="text-pink-600 text-xl mr-2">🔒</span>
-                    <span className="text-purple-800">Débloquer un quiz premium</span>
-                  </div>
+                  <span className="text-purple-800">Débloquer un quiz premium</span>
                   <span className="text-pink-600 font-bold">200</span>
                 </div>
                 <div className="flex justify-between items-center">
@@ -236,6 +241,23 @@ const Cadeaux = () => {
                   <span className="text-purple-800">Voir les 3 meilleurs matches</span>
                   <span className="text-pink-600 font-bold">40</span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* General rules section */}
+          <div className="mt-8">
+            <h2 className="text-3xl font-bold text-center mb-8" style={{ color: '#fff0b8' }}>
+              RÈGLES GÉNÉRALES
+            </h2>
+            
+            <div className="bg-white/90 rounded-xl p-6">
+              <div className="space-y-3 text-purple-800">
+                <p>Les points ne sont pas transférables entre utilisateurs.</p>
+                <p>Ils ne peuvent pas être convertis en argent.</p>
+                <p>Ils expirent uniquement si le compte reste inactif plus de 6 mois.</p>
+                <p>Certains contenus ne sont accessibles qu'aux membres Premium ou VIP, même avec des points.</p>
+                <p>Les points offerts ou bonus peuvent varier selon les promotions.</p>
               </div>
             </div>
           </div>
