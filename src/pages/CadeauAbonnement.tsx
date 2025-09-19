@@ -215,10 +215,13 @@ const CadeauAbonnement = () => {
               rel="noopener noreferrer"
             >
               <Button 
-                className="text-white font-semibold px-8 py-3 text-lg hover:opacity-90 transition-opacity"
+                className="text-white font-semibold px-8 py-3 text-lg hover:opacity-90 transition-opacity leading-tight"
                 style={{ backgroundColor: '#eb03ff' }}
               >
-                Je construis mon futur sentimental avec Fabdive
+                <span className="text-center">
+                  Je construis mon futur sentimental<br />
+                  avec Fabdive
+                </span>
               </Button>
             </a>
           </div>
