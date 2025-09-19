@@ -31,12 +31,12 @@ const CadeauAbonnement = () => {
             <p className="text-lg leading-relaxed" style={{ color: '#14018d' }}>
               Imagine <strong>construire ton futur</strong> avec une personne qui partage tes <strong>valeurs</strong>, tes{' '}
               <strong>rêves</strong>, et tes <strong>quirks</strong> — bien au-delà d'un simple <em>swipe</em> ou d'une photo. Chez{' '}
-              <strong>Fabdive Affinity</strong>, on est convaincus les <strong>plus belles histoires d'amour</strong>{' '}
+              <strong>Fabdive Affinity</strong>, on est convaincu que les <strong>plus belles histoires d'amour</strong>{' '}
               naissent des <strong>affinités profondes</strong>, pas des apparences.
             </p>
           </div>
           
-          <div className="mb-6">
+          <div className="-mx-8 mb-6">
             <img 
               src="/offert-birds.png" 
               alt="Offert en première" 
@@ -162,7 +162,7 @@ const CadeauAbonnement = () => {
 
         {/* Section Test avec coeur au néon */}
         <div className="bg-white p-8">
-          <div className="mb-6">
+          <div className="-mx-8 mb-6">
             <img 
               src="/heart-neon.png" 
               alt="Heart neon ECG" 
@@ -175,16 +175,24 @@ const CadeauAbonnement = () => {
           </h2>
           
           <div className="text-center space-y-2">
-            <p className="text-xl font-semibold" style={{ color: '#14018d' }}>
+            <a 
+              href="https://fabdive.app/quiz-amour"
+              className="block text-xl font-semibold hover:opacity-80 transition-opacity"
+              style={{ color: '#14018d' }}
+            >
               Es-tu prêt(e) pour une histoire d'amour ?
-            </p>
-            <p className="text-lg" style={{ color: '#14018d' }}>
+            </a>
+            <a 
+              href="https://fabdive.app/quiz-sentiment"
+              className="block text-lg hover:opacity-80 transition-opacity"
+              style={{ color: '#14018d' }}
+            >
               Découvre où tu en es sentimentalement
-            </p>
+            </a>
           </div>
           
           <div className="mt-8 text-center">
-            <div className="mb-6">
+            <div className="-mx-8 mb-6">
               <img 
                 src="/love-sand.png" 
                 alt="Love written in sand with Fabdive logo" 
