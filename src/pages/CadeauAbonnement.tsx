@@ -38,18 +38,13 @@ const CadeauAbonnement = () => {
             </p>
           </div>
           
-        </div>
-
-        {/* Image offert pleine largeur */}
-        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-          <img 
-            src="/offert.png" 
-            alt="Offert en première" 
-            className="w-full"
-          />
-        </div>
-
-        <div className="bg-white p-8 mb-0">
+          <div className="w-full mb-6">
+            <img 
+              src="/offert.png" 
+              alt="Offert en première" 
+              className="w-full"
+            />
+          </div>
 
           <p className="text-center text-lg" style={{ color: '#14018d' }}>
             Fini les rencontres qui ne mènent nulle part. Avec Fabdive, tu <strong>matches par affinité</strong> avant même de voir une photo. 
@@ -170,16 +165,15 @@ const CadeauAbonnement = () => {
           </div>
         </div>
 
-        {/* Section Test avec coeur au néon - Image pleine largeur */}
-        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mb-8">
-          <img 
-            src="/BG email 1 (2).png" 
-            alt="Heart neon ECG" 
-            className="w-full"
-          />
-        </div>
-        
+        {/* Section Test avec coeur au néon */}
         <div className="bg-white p-8 mb-0">
+          <div className="mb-6 w-full">
+            <img 
+              src="/BG email 1 (2).png" 
+              alt="Heart neon ECG" 
+              className="w-full"
+            />
+          </div>
           
           <h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#E879F9' }}>
             Teste-toi avec ces 2 quizzes
@@ -207,8 +201,7 @@ const CadeauAbonnement = () => {
           </div>
           
           <div className="mt-8 text-center">
-            {/* Image love-sand pleine largeur */}
-            <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] mb-6">
+            <div className="mb-6 w-full">
               <img 
                 src="/love-sand.png" 
                 alt="Love written in sand with Fabdive logo" 
