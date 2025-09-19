@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import Iridescence from "../components/Iridescence";
+import IridescenceBackground from "../components/IridescenceBackground";
 
 const MIN_SPLASH_MS = 4500;
 
@@ -75,10 +75,8 @@ const SplashScreen = () => {
 
   return (
     <div className="relative min-h-[100dvh] overflow-hidden">
-      {/* Iridescence Background (fixé plein écran pour éviter le reflow) */}
-      <div className="fixed inset-0">
-        <Iridescence color={[1, 0.3, 1]} mouseReact={false} amplitude={0.1} speed={1.0} />
-      </div>
+      {/* Background */}
+      <IridescenceBackground className="fixed inset-0" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] px-6 text-center">
