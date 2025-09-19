@@ -29,6 +29,7 @@ import TemporaryMessage from "./pages/TemporaryMessage";
 import MyMatches from "./pages/MyMatches";
 import Partenariat from "./pages/Partenariat";
 import Cadeaux from "./pages/Cadeaux";
+import CadeauAbonnement from "./pages/CadeauAbonnement";
 import QuizAmour from "./pages/QuizAmour";
 import QuizSentiment from "./pages/QuizSentiment";
 import QuizAffinite from "./pages/QuizAffinite";
@@ -68,7 +69,8 @@ const App = () => (
            <Route path="/temporary-message" element={<TemporaryMessage />} />
            <Route path="/matches" element={<MyMatches />} />
            <Route path="/partenariat" element={<Partenariat />} />
-           <Route path="/cadeaux" element={<Cadeaux />} />
+          <Route path="/cadeaux" element={<Cadeaux />} />
+          <Route path="/cadeau-abonnement" element={<CadeauAbonnement />} />
            <Route path="/quiz-amour" element={<QuizAmour />} />
            <Route path="/quiz-sentiment" element={<QuizSentiment />} />
            <Route path="/quiz-affinite" element={<QuizAffinite />} />
