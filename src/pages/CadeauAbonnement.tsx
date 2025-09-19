@@ -215,7 +215,7 @@ const CadeauAbonnement = () => {
               rel="noopener noreferrer"
             >
               <Button 
-                className="text-white font-semibold px-8 py-6 text-lg hover:opacity-90 transition-opacity leading-tight"
+                className="text-white font-semibold px-4 md:px-8 py-6 text-sm md:text-lg hover:opacity-90 transition-opacity leading-tight w-full max-w-xs mx-auto"
                 style={{ backgroundColor: '#eb03ff' }}
               >
                 <span className="text-center">
