@@ -7,7 +7,7 @@ const CadeauAbonnement = () => {
     <div 
       className="min-h-screen"
       style={{
-        backgroundImage: 'url(/BG email 1 (2).png)',
+        backgroundImage: 'url(/BG_email_1-3.png)',
         backgroundRepeat: 'repeat',
         backgroundSize: 'auto'
       }}
