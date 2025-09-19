@@ -9,8 +9,7 @@ const CadeauAbonnement = () => {
       style={{
         backgroundImage: 'url(/BG email 1.png)',
         backgroundRepeat: 'repeat',
-        backgroundSize: 'auto',
-        opacity: '1'
+        backgroundSize: 'auto'
       }}
     >
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-0">
@@ -122,12 +121,24 @@ const CadeauAbonnement = () => {
           </h2>
           
           <div className="text-center space-y-2">
-            <p className="text-xl font-semibold" style={{ color: '#14018d' }}>
+            <a 
+              href="https://fabdive.app/quiz-amour" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xl font-semibold hover:underline block"
+              style={{ color: '#14018d' }}
+            >
               Es-tu prêt(e) pour une histoire d'amour ?
-            </p>
-            <p className="text-lg" style={{ color: '#14018d' }}>
+            </a>
+            <a 
+              href="https://fabdive.app/quiz-sentiment" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-lg hover:underline block"
+              style={{ color: '#14018d' }}
+            >
               Découvre où tu en es sentimentalement
-            </p>
+            </a>
           </div>
           
           <div className="mt-8 text-center">
@@ -139,12 +150,18 @@ const CadeauAbonnement = () => {
               />
             </div>
             
-            <Button 
-              className="text-white font-semibold px-8 py-3 text-lg hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: '#eb03ff' }}
+            <a 
+              href="https://fabdive.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              Je construis mon futur avec Fabdive
-            </Button>
+              <Button 
+                className="text-white font-semibold px-8 py-3 text-lg hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: '#eb03ff' }}
+              >
+                Je construis mon futur sentimental avec Fabdive
+              </Button>
+            </a>
           </div>
         </div>
 
