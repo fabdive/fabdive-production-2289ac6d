@@ -7,7 +7,7 @@ const CadeauAbonnement = () => {
     <div 
       className="min-h-screen"
       style={{
-        backgroundImage: 'url(/BG email 1.png)',
+        backgroundImage: 'url(/BG email 1 (2).png)',
         backgroundRepeat: 'repeat',
         backgroundSize: 'auto'
       }}
@@ -67,12 +67,62 @@ const CadeauAbonnement = () => {
             Pourquoi Fabdive est différent ?
           </h2>
           
-          <div className="w-full mb-6">
-            <img 
-              src="/comparison-table.png" 
-              alt="Comparaison Fabdive vs autres apps" 
-              className="w-full rounded-lg"
-            />
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Les autres apps */}
+            <div>
+              <div className="mb-4">
+                <img 
+                  src="/5.png" 
+                  alt="Candy hearts" 
+                  className="w-48 h-32 object-cover rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#14018d' }}>
+                Les autres apps :
+              </h3>
+              <div className="space-y-3" style={{ color: '#14018d' }}>
+                <div className="flex items-start gap-3">
+                  <X className="text-red-500 mt-1 flex-shrink-0" size={20} />
+                  <span>Des <em>swipes</em> basés sur des photos.</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <X className="text-red-500 mt-1 flex-shrink-0" size={20} />
+                  <span>Des conversations qui s'éteignent aussi vite qu'elles ont commencé.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Fabdive Affinity */}
+            <div>
+              <div className="mb-4">
+                <img 
+                  src="/coupl.png" 
+                  alt="Couple silhouette" 
+                  className="w-48 h-32 object-cover rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#14018d' }}>
+                Fabdive Affinity :
+              </h3>
+              <div className="space-y-3" style={{ color: '#14018d' }}>
+                <div className="flex items-start gap-3">
+                  <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                  <span><strong>Un profil affinitaire</strong> (à décrire à l'inscription).</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                  <span><strong>Des quiz et des questions profondes</strong> pour découvrir vos compatibilités.</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                  <span><strong>Les photos se dévoilent après avoir établi une connexion</strong>, car l'essentiel est invisible pour les yeux.</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                  <span><strong>Des événements IRL exclusifs</strong> (soirées, ateliers) pour rencontrer vos matches dans un cadre magique.</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
