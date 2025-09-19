@@ -169,8 +169,8 @@ const CadeauAbonnement = () => {
         <div className="bg-white p-8 mb-0">
           <div className="mb-6 w-full">
             <img 
-              src="/separateur-2.png" 
-              alt="Séparateur" 
+              src="/fb_test-3.png" 
+              alt="Heart neon ECG" 
               className="w-full"
             />
           </div>
