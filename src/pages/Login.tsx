@@ -4,9 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Separator } from "@/components/ui/separator";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
@@ -16,8 +14,6 @@ type FormState = "idle" | "loading" | "error";
 
 export default function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
   const { toast } = useToast();
@@ -26,7 +22,6 @@ export default function Login() {
   // Force clear fields on component mount
   useEffect(() => {
     setEmail("");
-    setPassword("");
     setState("idle");
     setMessage("");
   }, []);
@@ -155,39 +150,6 @@ export default function Login() {
     }
   };
 
-  const handlePasswordLogin = async () => {
-    if (!email || !password) {
-      toast({
-        variant: "destructive",
-        title: "Erreur",
-        description: "Saisis ton email et ton mot de passe."
-      });
-      return;
-    }
-
-    setState("loading");
-    
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
-      if (error) throw error;
-
-      toast({
-        title: "Connexion réussie",
-        description: "Tu vas être redirigé.",
-      });
-
-      // Rediriger après connexion réussie
-      await redirectUserBasedOnProfile();
-      
-    } catch (error: any) {
-      setState("error");
-      setMessage(translateAuthError(error));
-    }
-  };
 
 
   const handleForceLogout = async () => {
@@ -231,8 +193,8 @@ export default function Login() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {/* Email/Password Form */}
-              <form onSubmit={(e) => { e.preventDefault(); handlePasswordLogin(); }} className="space-y-4">
+              {/* Email Form */}
+              <div className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-fabdive-text">Adresse email</Label>
                   <div className="relative">
@@ -254,70 +216,28 @@ export default function Login() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="password" className="text-fabdive-text">Mot de passe</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-fabdive-text/70" />
-                    <Input
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Votre mot de passe"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="pl-10 pr-10 bg-white/10 border-white/20 text-fabdive-text placeholder-fabdive-text/70"
-                      required
-                      disabled={isLoading}
-                      autoComplete="current-password"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-fabdive-text/70 hover:text-fabdive-text transition-colors"
-                      disabled={isLoading}
-                    >
-                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-
                 <Button
-                  type="submit"
+                  type="button"
                   variant="fabdive"
                   className="w-full"
-                  disabled={isLoading || !email || !password}
+                  onClick={handleMagicLink}
+                  disabled={isLoading || !email}
                 >
                   {isLoading ? (
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Connexion en cours...
+                      Envoi en cours...
                     </div>
                   ) : (
                      <div className="flex items-center gap-2">
-                       <Lock className="w-4 h-4" />
-                       Se connecter
+                       <Mail className="w-4 h-4" />
+                       Envoyer un lien de connexion
                      </div>
                   )}
                 </Button>
-              </form>
-
-              <Separator className="bg-white/20" />
-
-              {/* Magic Link Option */}
-              <div className="space-y-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full bg-white/5 border-white/20 text-fabdive-text hover:bg-white/10"
-                  onClick={handleMagicLink}
-                  disabled={isLoading || !email}
-                >
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    Envoyer un lien de connexion par email
-                  </div>
-                </Button>
+                
                 <p className="text-xs text-fabdive-text/60 text-center">
-                  Alternative : reçois un lien de connexion par email
+                  Tu recevras un lien de connexion sécurisé par email
                 </p>
               </div>
 
