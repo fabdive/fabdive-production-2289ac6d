@@ -57,6 +57,13 @@ const CadeauAbonnement = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Les autres apps */}
             <div>
+              <div className="mb-4">
+                <img 
+                  src="/candy-hearts.png" 
+                  alt="Candy hearts" 
+                  className="w-32 h-20 object-cover rounded-lg"
+                />
+              </div>
               <h3 className="text-xl font-semibold text-fabdive-primary mb-4">
                 Les autres apps :
               </h3>
@@ -74,6 +81,13 @@ const CadeauAbonnement = () => {
 
             {/* Fabdive Affinity */}
             <div>
+              <div className="mb-4">
+                <img 
+                  src="/couple-silhouette.png" 
+                  alt="Couple silhouette" 
+                  className="w-32 h-32 object-cover rounded-lg"
+                />
+              </div>
               <h3 className="text-xl font-semibold text-fabdive-primary mb-4">
                 Fabdive Affinity :
               </h3>
@@ -131,14 +145,12 @@ const CadeauAbonnement = () => {
 
         {/* Section Test avec coeur au néon */}
         <div className="bg-white rounded-lg p-8 mb-6">
-          <div 
-            className="h-40 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)'
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/80 to-pink-600/80"></div>
-            <Heart className="text-pink-300 animate-pulse" size={120} fill="currentColor" />
+          <div className="mb-6 flex justify-center">
+            <img 
+              src="/heart-neon.png" 
+              alt="Heart neon ECG" 
+              className="w-full max-w-2xl rounded-lg"
+            />
           </div>
           
           <h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#E879F9' }}>
@@ -155,18 +167,12 @@ const CadeauAbonnement = () => {
           </div>
           
           <div className="mt-8 text-center">
-            <div 
-              className="h-32 rounded-lg mb-6 flex items-center justify-center relative"
-              style={{
-                background: 'linear-gradient(135deg, #F59E0B 0%, #F97316 100%)'
-              }}
-            >
-              <div className="text-center text-white">
-                <div className="mb-2">
-                  <img src="/logo-fabdive.png" alt="Fabdive" className="h-8 mx-auto opacity-80" />
-                </div>
-                <div className="text-4xl font-bold tracking-wider">LOVE</div>
-              </div>
+            <div className="mb-6 flex justify-center">
+              <img 
+                src="/love-sand.png" 
+                alt="Love written in sand with Fabdive logo" 
+                className="w-full max-w-2xl rounded-lg"
+              />
             </div>
             
             <Button 
