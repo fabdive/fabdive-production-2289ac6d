@@ -126,6 +126,15 @@ const CadeauAbonnement = () => {
           </div>
         </div>
 
+        {/* Séparateur */}
+        <div className="w-full">
+          <img 
+            src="/separateur.png" 
+            alt="Séparateur" 
+            className="w-full"
+          />
+        </div>
+
         {/* Section Offre exclusive */}
         <div className="bg-white p-8 mb-0">
           <h2 className="text-4xl font-bold text-center mb-2" style={{ color: '#E879F9' }}>
