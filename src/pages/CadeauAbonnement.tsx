@@ -177,6 +177,8 @@ const CadeauAbonnement = () => {
           <div className="text-center space-y-2">
             <a 
               href="https://fabdive.app/quiz-amour"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block text-xl font-semibold hover:opacity-80 transition-opacity"
               style={{ color: '#14018d' }}
             >
@@ -184,6 +186,8 @@ const CadeauAbonnement = () => {
             </a>
             <a 
               href="https://fabdive.app/quiz-sentiment"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block text-lg hover:opacity-80 transition-opacity"
               style={{ color: '#14018d' }}
             >
