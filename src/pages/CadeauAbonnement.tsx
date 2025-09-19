@@ -15,13 +15,13 @@ const CadeauAbonnement = () => {
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-0">
         {/* Header avec logo */}
         <div className="bg-white rounded-lg p-6 mb-0">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-center text-center space-y-4">
             <img 
               src="/logo-fabdive-email.png" 
               alt="Fabdive affinity" 
               className="h-20"
             />
-            <h1 className="text-2xl font-bold text-center flex-1" style={{ color: '#14018d' }}>
+            <h1 className="text-xl md:text-2xl font-bold" style={{ color: '#14018d' }}>
               Ton histoire d'amour pourrait commencer ici
             </h1>
           </div>
